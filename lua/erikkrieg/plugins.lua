@@ -3,9 +3,7 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'neovim/nvim-lspconfig'
   use 'simrat39/rust-tools.nvim'
-  -- vim-go is failing to install with packer. Planning to use lsp and gopls
-  -- soon, so going to leave this disabled for now.
-  -- use { 'faith/vim-go', run = ':GoUpdateBinaries' }
+  use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
   use { 'dracula/vim', as = 'dracula' }
   use { 'folke/tokyonight.nvim', branch = 'main' }
   -- Look into these themes plug:
