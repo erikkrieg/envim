@@ -1,17 +1,15 @@
--- Using vim-plug
-local Plug = vim.fn['plug#']
-vim.call('plug#begin')
-  -- Language plugins
-  Plug('fatih/vim-go', { ['do'] = 'GoUpdateBinaries' })
-
-  -- Themes
-  Plug('dracula/vim', { as = 'dracula' })
-  Plug('folke/tokyonight.nvim', { branch = 'main' })
-
+vim.cmd [[packadd packer.nvim]]
+require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
+  -- vim-go is failing to install with packer. Planning to use lsp and gopls
+  -- soon, so going to leave this disabled for now.
+  -- use { 'faith/vim-go', run = ':GoUpdateBinaries' }
+  use { 'dracula/vim', as = 'dracula' }
+  use { 'folke/tokyonight.nvim', branch = 'main' }
   -- Look into these themes plug:
   -- - https://github.com/sonph/onehalf
   -- - https://github.com/chriskempson/base16-vim/
-vim.call('plug#end')
+end)
 
 -- Plugin options
 -- vim-go options
