@@ -1,6 +1,8 @@
 vim.cmd [[packadd packer.nvim]]
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
+  use 'neovim/nvim-lspconfig'
+  use 'simrat39/rust-tools.nvim'
   -- vim-go is failing to install with packer. Planning to use lsp and gopls
   -- soon, so going to leave this disabled for now.
   -- use { 'faith/vim-go', run = ':GoUpdateBinaries' }
@@ -22,3 +24,4 @@ vim.g.go_highlight_variable_assignments = 1
 
 -- tokyonight options
 vim.g.tokyonight_style = 'night'
+
