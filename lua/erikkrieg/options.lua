@@ -17,9 +17,12 @@ v.number = true
 v.scrolloff = 8
 v.showcmd = true
 v.signcolumn = 'yes'
+v.lazyredraw = true     -- improves macro performance
 
 -- Search
 v.incsearch = true
+v.ignorecase = true
+v.smartcase = true
 
 -- Theme
 v.termguicolors = true
@@ -31,3 +34,4 @@ vim.cmd('syntax on')
 -- Reducing updatetime is will improve perceived performance of features using
 -- cursorhold events. The resource usage will be increased, tho.
 v.updatetime = 300
+v.clipboard = 'unnamedplus'
