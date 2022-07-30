@@ -6,6 +6,7 @@ require('packer').startup(function(use)
   use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
   use { 'dracula/vim', as = 'dracula' }
   use { 'folke/tokyonight.nvim', branch = 'main' }
+  use 'NoahTheDuke/vim-just'
   -- Look into these themes plug:
   -- - https://github.com/sonph/onehalf
   -- - https://github.com/chriskempson/base16-vim/
