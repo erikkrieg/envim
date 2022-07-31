@@ -24,6 +24,9 @@ v.incsearch = true
 v.ignorecase = true
 v.smartcase = true
 
+-- Menus
+v.completeopt='menu,menuone,preview'
+
 -- Theme
 v.termguicolors = true
 v.background = 'dark'
