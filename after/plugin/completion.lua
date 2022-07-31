@@ -12,12 +12,13 @@ local source_mapping = {
   path = "[Path]",
 }
 
-local formatTabnine = function(entry, vim_item)
+local function formatTabnine(entry, vim_item)
   vim_item.kind = lspkind.presets.default[vim_item.kind]
   local menu = source_mapping[entry.source.name]
   if entry.source.name == 'cmp_tabnine' then
-    if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-      menu = entry.completion_item.data.detail .. ' ' .. menu
+    local data = entry.completion_item.data
+    if data ~= nil and data.detail ~= nil then
+      menu = data.detail .. ' ' .. menu
     end
     vim_item.kind = ''
   end
@@ -69,7 +70,6 @@ cmp.setup({
     { name = 'buffer' },
   }),
   formatting = {
-		-- format = formatTabnineAdvanced
     format = lspkind.cmp_format({
       mode = 'symbol_text',
       maxwidth = 200,
@@ -77,7 +77,6 @@ cmp.setup({
     })
 	},
 })
-
 
 -- Set configuration for specific filetype.
 -- cmp.setup.filetype('gitcommit', {
@@ -88,7 +87,6 @@ cmp.setup({
 --   })
 -- })
 
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
@@ -96,7 +94,6 @@ cmp.setup.cmdline('/', {
   }
 })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
