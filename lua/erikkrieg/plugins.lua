@@ -1,12 +1,28 @@
 vim.cmd [[packadd packer.nvim]]
 require('packer').startup(function(use)
+  -- Plugin management
   use 'wbthomason/packer.nvim'
-  use 'neovim/nvim-lspconfig'
-  use 'simrat39/rust-tools.nvim'
-  use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
-  use { 'dracula/vim', as = 'dracula' }
-  use { 'folke/tokyonight.nvim', branch = 'main' }
-  use 'NoahTheDuke/vim-just'
+
+  -- General Language
+  use('neovim/nvim-lspconfig')
+  use('hrsh7th/nvim-cmp')
+  use('hrsh7th/cmp-nvim-lsp')
+  use('hrsh7th/cmp-buffer')
+  use('L3MON4D3/LuaSnip')
+  use('saadparwaiz1/cmp_luasnip')
+  use('hrsh7th/cmp-cmdline')
+  use('tzachar/cmp-tabnine', { run = './install.sh' }) -- AI cmp source
+  use('onsails/lspkind-nvim') -- Adds pictograms used by cmp formatter
+
+  -- Specific Languages
+  use('simrat39/rust-tools.nvim')
+  use({ 'fatih/vim-go', run = ':GoUpdateBinaries' })
+  use('NoahTheDuke/vim-just')
+
+  -- Themes
+  use({ 'dracula/vim', as = 'dracula' })
+  use({ 'folke/tokyonight.nvim', branch = 'main' })
+
   -- Look into these themes plug:
   -- - https://github.com/sonph/onehalf
   -- - https://github.com/chriskempson/base16-vim/
@@ -20,6 +36,10 @@ vim.g.go_highlight_function_calls = 1
 vim.g.go_highlight_types = 1
 vim.g.go_highlight_variable_declarations = 1
 vim.g.go_highlight_variable_assignments = 1
+vim.g.go_metalinter_enabled = {'vet', 'golint', 'errcheck'}
+vim.g.go_metalinter_autosave = 1
+vim.g.go_metalinter_deadline = '5s'
+vim.g.go_auto_type_info = 1
 
 -- tokyonight options
 vim.g.tokyonight_style = 'night'
