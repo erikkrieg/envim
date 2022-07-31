@@ -11,7 +11,6 @@ end
 -- Look into fleshing this out: https://sharksforarms.dev/posts/neovim-rust/
 require('lspconfig')['rust_analyzer'].setup{}
 
---[[
 -- Go
 require("lspconfig").gopls.setup(config({
 	cmd = { "gopls", "serve" },
@@ -25,4 +24,4 @@ require("lspconfig").gopls.setup(config({
 		},
 },
 }))
-]]--
+
