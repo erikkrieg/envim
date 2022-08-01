@@ -26,6 +26,7 @@ v.smartcase = true
 
 -- Menus
 v.completeopt='menu,menuone,preview'
+v.pumheight=20
 
 -- Theme
 v.termguicolors = true
