@@ -111,5 +111,5 @@ tabnine:setup({
 	sort = true,
 	run_on_every_keystroke = true,
   show_prediction_strength = true,
-	snippet_placeholder = "..",
+	snippet_placeholder = "",
 })
