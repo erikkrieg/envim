@@ -6,8 +6,20 @@ local function config(c)
   return c or {}
 end
 
--- Look into fleshing this out: https://sharksforarms.dev/posts/neovim-rust/
-require('rust-tools').setup({})
+-- Rust
+require('rust-tools').setup({
+    server = {
+        capabilities = capabilities,
+        -- on_attach = on_attach,
+        settings = {
+            ["rust-analyzer"] = {
+                checkOnSave = {
+                    command = "clippy"
+                },
+            }
+        }
+    },
+})
 
 -- Go
 require("lspconfig").gopls.setup(config({
