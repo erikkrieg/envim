@@ -7,7 +7,7 @@ local function config(c)
 end
 
 -- Look into fleshing this out: https://sharksforarms.dev/posts/neovim-rust/
-require('lspconfig')['rust_analyzer'].setup{}
+require('rust-tools').setup({})
 
 -- Go
 require("lspconfig").gopls.setup(config({
