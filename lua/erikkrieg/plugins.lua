@@ -33,9 +33,11 @@ require('packer').startup(function(use)
   use({ 'fatih/vim-go', run = ':GoUpdateBinaries' })
   use('NoahTheDuke/vim-just')
 
+  use("nvim-lua/plenary.nvim")
+  use({'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = 'nvim-lua/plenary.nvim'})
   -- Themes
-  use({ 'dracula/vim', as = 'dracula' })
-  use({ 'folke/tokyonight.nvim', branch = 'main' })
+  use({'dracula/vim', as = 'dracula'})
+  use({'folke/tokyonight.nvim', branch = 'main'})
 
   -- Look into these themes plug:
   -- - https://github.com/sonph/onehalf
