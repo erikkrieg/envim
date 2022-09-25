@@ -9,7 +9,3 @@ LSP References:
 - https://rust-analyzer.github.io/manual.html#configuration
 - https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 
-LSP todos:
-- Diagnostics are too long for my screen
-  - Can the diagnostics message wrap?
-- Setup lsp keymaps
