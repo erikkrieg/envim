@@ -58,3 +58,6 @@ require("lspconfig").gopls.setup(config({
 },
 }))
 
+-- Bash
+require("lspconfig").bashls.setup(config({}))
+
