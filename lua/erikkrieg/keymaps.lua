@@ -12,3 +12,6 @@ keymap("n", "<leader>t", "<cmd>Telescope<cr>", opts)
 keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
 
+-- Insert
+keymap("i", "<M-BS>", "<c-w>", opts)
+
