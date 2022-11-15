@@ -59,3 +59,11 @@ require("lspconfig").gopls.setup(config({
 -- Bash
 require("lspconfig").bashls.setup(config({}))
 
+-- Terraform
+require("lspconfig").terraformls.setup(config({}))
+require("lspconfig").tflint.setup(config({}))
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+  pattern = {"*.tf", "*.tfvars"},
+  callback = vim.lsp.buf.formatting_sync,
+})
+
