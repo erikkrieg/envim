@@ -67,3 +67,9 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
   callback = vim.lsp.buf.formatting_sync,
 })
 
+-- Nim
+require'lspconfig'.nimls.setup(config({
+  settings = {
+    filetypes = { "*.nim", "nim" }
+  }
+}))
