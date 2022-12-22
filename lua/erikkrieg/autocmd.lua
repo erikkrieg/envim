@@ -14,3 +14,8 @@ autocmd({"BufWritePre"}, {
   end
 })
 
+autocmd({"BufWritePre"}, {
+  pattern = "*.re",
+  command = 'ReasonPrettyPrint'
+})
+
