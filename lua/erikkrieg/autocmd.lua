@@ -14,3 +14,10 @@ autocmd({"BufWritePre"}, {
   end
 })
 
+autocmd({"BufWritePre"}, {
+  pattern = "*.py",
+  callback = function()
+    vim.lsp.buf.format()
+  end
+})
+
