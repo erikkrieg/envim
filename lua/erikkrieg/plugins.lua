@@ -27,6 +27,11 @@ require('packer').startup(function(use)
   use('hrsh7th/cmp-cmdline')
   use({'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'})
   use('onsails/lspkind-nvim') -- Adds pictograms used by cmp formatter
+  use({'numToStr/Comment.nvim', -- Multi-line comments
+    config = function()
+      require('Comment').setup()
+    end
+  })
 
   -- Specific Languages
   use('simrat39/rust-tools.nvim')
