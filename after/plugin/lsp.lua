@@ -73,3 +73,7 @@ require'lspconfig'.nimls.setup(config({
     filetypes = { "*.nim", "nim" }
   }
 }))
+
+-- Python
+require("lspconfig").pyright.setup(config({}))
+
