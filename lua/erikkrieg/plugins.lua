@@ -32,6 +32,7 @@ require('packer').startup(function(use)
       require('Comment').setup()
     end
   })
+  use('sbdchd/neoformat')
 
   -- Specific Languages
   use('simrat39/rust-tools.nvim')
