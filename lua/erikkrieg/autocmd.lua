@@ -15,6 +15,13 @@ autocmd({"BufWritePre"}, {
 })
 
 autocmd({"BufWritePre"}, {
+  pattern = {"*.tf", "*.tfvars"},
+  callback = function()
+    vim.lsp.buf.formatting_sync(nil, 200)
+  end
+})
+
+autocmd({"BufWritePre"}, {
   pattern = "*.py",
   callback = function()
     -- Can be combined with yapf
