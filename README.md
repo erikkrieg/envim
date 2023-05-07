@@ -1,3 +1,5 @@
+# envim: Erik's Neovim config
+
 References:
 - https://github.com/ThePrimeagen/.dotfiles/tree/master/nvim/.config/nvim
 - https://github.com/sharksforarms/neovim-rust
