@@ -20,12 +20,13 @@
         configure = {
           customRC = ''
             lua << EOF
-              package.path = "${self}/?.lua;" .. package.path
+            vim.o.runtimepath = table.concat({ 
+              "${self}/nvim", "${self}/nvim/after",
+              vim.o.runtimepath
+            }, ",")
             ''
             + pkgs.lib.readFile ./init.lua
-            + ''
-              EOF
-          '';
+            + ''EOF'';
         };
       };
       packages.default = packages.envim;
