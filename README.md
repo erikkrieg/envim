@@ -18,3 +18,5 @@ While in the root of the envim directory [run in a new shell containing the buil
 nix develop
 ```
 
+_Note: if packer is not installed then it will bootstrap and then sync plugins the first time `nvim` is run. Once complete, either `:source` the config or start a new nvim process._
+
