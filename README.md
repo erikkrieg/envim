@@ -4,7 +4,7 @@ Terminal-first development and source controlled configuration with [Neovim](htt
 
 ## Usage
 
-Envim is available as a [nix flake](https://nixos.wiki/wiki/flakes) and is best installed with a something like Nix Home Manager. Here's the Nix configuration I use: https://github.com/erikkrieg/eksys
+Envim is available as a [nix flake](https://nixos.wiki/wiki/flakes) and is best installed with a something like [Nix Home Manager](https://github.com/nix-community/home-manager). Here's the Nix configuration I use: https://github.com/erikkrieg/eksys
 
 There are a few other nix-y ways to run envim without installing it at the system or user level.
 
