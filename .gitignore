@@ -1,3 +1,3 @@
-plugin/
-!/after/plugin
+# I'm using this with nix shell to test plugins
+.data/
 
