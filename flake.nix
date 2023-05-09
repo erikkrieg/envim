@@ -38,6 +38,17 @@
       apps.default = apps.envim;
       devShell = mkShell {
         buildInputs = [packages.envim];
+        # Sets up plugins in a local dir to allow testing without impacting user plugins.
+        shellHook = ''
+          export XDG_DATA_HOME="$(pwd)/.data"
+          mkdir -p $XDG_DATA_HOME
+          nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+          tabnine="$XDG_DATA_HOME/nvim/site/pack/packer/start/cmp-tabnine"
+          if [ ! -f "$tabnine/binaries/.active" ]; then
+            "$tabnine/install.sh"
+          fi
+          echo
+        '';
       };
     });
 }
