@@ -1,5 +1,3 @@
-print("Load after/plugin/lsp")
-
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 local on_attach = function(client, bufnr)

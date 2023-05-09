@@ -1,5 +1,3 @@
-print("Load after/plugin/completion")
-
 local cmp = require'cmp'
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
