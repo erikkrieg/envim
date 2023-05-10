@@ -25,7 +25,7 @@
               vim.o.runtimepath
             }, ",")
             ''
-            + pkgs.lib.readFile ./init.lua
+            + pkgs.lib.readFile ./nvim/init.lua
             + ''EOF'';
         };
       };
