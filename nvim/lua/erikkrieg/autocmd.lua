@@ -46,3 +46,11 @@ autocmd({"ColorScheme"}, {
   end
 })
 
+autocmd({"VimEnter"}, {
+  pattern = "*",
+  callback = function()
+    -- One of my hosts has an elusive bug that causes color scheme to change.
+    -- This is a hacky solution that seems to use in the meantime.
+    vim.cmd[[colorscheme tokyonight-storm]]
+  end
+})
