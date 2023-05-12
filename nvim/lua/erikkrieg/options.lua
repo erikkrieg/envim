@@ -31,7 +31,7 @@ v.pumheight=20
 -- Theme
 v.termguicolors = true
 v.background = 'dark'
-vim.cmd('colorscheme tokyonight-night')
+vim.cmd('colorscheme tokyonight-storm')
 vim.cmd('syntax on')
 
 -- Misc

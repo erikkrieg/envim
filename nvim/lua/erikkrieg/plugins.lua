@@ -42,7 +42,13 @@ require('packer').startup(function(use)
   use('hashivim/vim-terraform') -- Using this for syntax highlighting because lsp isn't providing it
   use('zah/nim.vim')
 
-  use("nvim-lua/plenary.nvim")
+  use({ 'nvim-treesitter/nvim-treesitter',
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end
+  })
+  use({"nvim-lua/plenary.nvim", requires = 'nvim-treesitter/nvim-treesitter'})
   use({'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = 'nvim-lua/plenary.nvim'})
   -- Themes
   use({'dracula/vim', as = 'dracula'})
@@ -71,5 +77,5 @@ vim.g.go_metalinter_deadline = '5s'
 vim.g.go_auto_type_info = 1
 
 -- tokyonight options
-vim.g.tokyonight_style = 'night'
+vim.g.tokyonight_style = 'storm'
 
