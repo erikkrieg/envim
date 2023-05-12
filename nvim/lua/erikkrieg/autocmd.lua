@@ -32,3 +32,17 @@ autocmd({"BufWritePre"}, {
   end
 })
 
+autocmd({"ColorSchemePre"}, {
+  pattern = "*",
+  callback = function()
+    print("colorscheme is about to change")
+  end
+})
+
+autocmd({"ColorScheme"}, {
+  pattern = "*",
+  callback = function()
+    print("colorscheme change")
+  end
+})
+
