@@ -73,3 +73,6 @@ require'lspconfig'.nimls.setup(config({
 -- Python
 require("lspconfig").pyright.setup(config({}))
 
+-- TS/JS
+require('lspconfig').tsserver.setup(config({}))
+

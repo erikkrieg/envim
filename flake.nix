@@ -9,6 +9,9 @@
   outputs = { self, flake-utils, nixpkgs, ... }: 
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = import nixpkgs { inherit system; };
+      extraPackages = with pkgs; [
+        nodePackages.typescript-language-server
+      ];
     in with pkgs; rec {
       packages.envim = wrapNeovim neovim-unwrapped {
         viAlias = true;
@@ -17,6 +20,7 @@
         withPython3 = false;
         withRuby = false;
         extraPython3Packages = false;
+        extraMakeWrapperArgs = ''--prefix PATH : "${lib.makeBinPath extraPackages}"'';
         configure = {
           customRC = ''
             lua << EOF

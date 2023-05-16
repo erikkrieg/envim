@@ -76,6 +76,9 @@ vim.g.go_metalinter_autosave = 1
 vim.g.go_metalinter_deadline = '5s'
 vim.g.go_auto_type_info = 1
 
+-- neoformat
+vim.g.neoformat_try_node_exe = 1 -- look for prettier bin in node_modules
+
 -- tokyonight options
 vim.g.tokyonight_style = 'storm'
 
