@@ -10,7 +10,11 @@
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = import nixpkgs { inherit system; };
       extraPackages = with pkgs; [
+        fzf
+        git
+        nodejs-slim_20
         nodePackages.typescript-language-server
+        tree-sitter
       ];
     in with pkgs; rec {
       packages.envim = wrapNeovim neovim-unwrapped {
