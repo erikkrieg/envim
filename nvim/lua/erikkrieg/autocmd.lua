@@ -39,6 +39,13 @@ autocmd({"BufWritePre"}, {
   end
 })
 
+autocmd({"BufWritePre"}, {
+  pattern = "*.nix",
+  callback = function ()
+    vim.api.nvim_command("Neoformat")
+  end
+})
+
 autocmd({"ColorSchemePre"}, {
   pattern = "*",
   callback = function()

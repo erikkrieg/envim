@@ -45,15 +45,15 @@ require('rust-tools').setup({
 
 -- Go
 require("lspconfig").gopls.setup(config({
-	cmd = { "gopls", "serve" },
-	settings = {
-		gopls = {
-			analyses = {
-				unusedparams = true,
-			},
-			staticcheck = true,
-		},
-},
+  cmd = { "gopls", "serve" },
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
 }))
 
 -- Bash
@@ -76,3 +76,5 @@ require("lspconfig").pyright.setup(config({}))
 -- TS/JS
 require('lspconfig').tsserver.setup(config({}))
 
+-- Nix
+require('lspconfig').nil_ls.setup(config({}))

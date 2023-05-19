@@ -38,7 +38,6 @@ require('packer').startup(function(use)
   use('simrat39/rust-tools.nvim')
   use({ 'fatih/vim-go', run = ':GoUpdateBinaries' })
   use('NoahTheDuke/vim-just')
-  use('LnL7/vim-nix')
   use('hashivim/vim-terraform') -- Using this for syntax highlighting because lsp isn't providing it
   use('zah/nim.vim')
 
