@@ -52,6 +52,9 @@
           buildInputs = [ packages.envim ];
           # Sets up plugins in a local dir to allow testing without impacting user plugins.
           shellHook = ''
+            alias c="clear"
+            alias l="ls -la"
+            alias v="nvim"
             export XDG_DATA_HOME="$(pwd)/.data"
             mkdir -p $XDG_DATA_HOME
             nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
