@@ -16,6 +16,7 @@
           nil
           nixpkgs-fmt
           nodejs-slim_20
+          nodePackages.bash-language-server
           nodePackages.typescript-language-server
           tree-sitter
         ];
