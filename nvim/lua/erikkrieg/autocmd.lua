@@ -26,9 +26,6 @@ autocmd({"BufWritePre"}, {
   callback = function()
     -- Can be combined with yapf
     vim.api.nvim_command("Neoformat")
-    -- The builtin buf format wasn't working. I'd get this error:
-    -- "Format request failed, no matching language servers."
-    -- vim.lsp.buf.format()
   end
 })
 
