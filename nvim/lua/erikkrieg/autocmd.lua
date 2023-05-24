@@ -1,74 +1,74 @@
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd({"CursorHold"}, {
+autocmd({ "CursorHold" }, {
   pattern = "*",
   callback = function()
     vim.diagnostic.open_float(nil, { focusable = false })
-  end
+  end,
 })
 
-autocmd({"BufWritePre"}, {
+autocmd({ "BufWritePre" }, {
   pattern = "*.rs",
   callback = function()
     vim.lsp.buf.formatting_sync(nil, 200)
-  end
+  end,
 })
 
-autocmd({"BufWritePre"}, {
-  pattern = {"*.tf", "*.tfvars"},
+autocmd({ "BufWritePre" }, {
+  pattern = { "*.tf", "*.tfvars" },
   callback = function()
     vim.lsp.buf.formatting_sync(nil, 200)
-  end
+  end,
 })
 
-autocmd({"BufWritePre"}, {
+autocmd({ "BufWritePre" }, {
   pattern = "*.py",
   callback = function()
     -- Can be combined with yapf
     vim.api.nvim_command("Neoformat")
-  end
+  end,
 })
 
-autocmd({"BufWritePre"}, {
+autocmd({ "BufWritePre" }, {
   pattern = "*.js",
-  callback = function ()
+  callback = function()
     vim.api.nvim_command("Neoformat")
-  end
+  end,
 })
 
-autocmd({"BufWritePre"}, {
+autocmd({ "BufWritePre" }, {
   pattern = "*.lua",
-  callback = function ()
+  callback = function()
     vim.api.nvim_command("Neoformat")
-  end
+  end,
 })
 
-autocmd({"BufWritePre"}, {
+autocmd({ "BufWritePre" }, {
   pattern = "*.nix",
-  callback = function ()
+  callback = function()
     vim.api.nvim_command("Neoformat")
-  end
+  end,
 })
 
-autocmd({"ColorSchemePre"}, {
+autocmd({ "ColorSchemePre" }, {
   pattern = "*",
   callback = function()
     print("colorscheme is about to change")
-  end
+  end,
 })
 
-autocmd({"ColorScheme"}, {
+autocmd({ "ColorScheme" }, {
   pattern = "*",
   callback = function()
     print("colorscheme change")
-  end
+  end,
 })
 
-autocmd({"VimEnter"}, {
+autocmd({ "VimEnter" }, {
   pattern = "*",
   callback = function()
     -- One of my hosts has an elusive bug that causes color scheme to change.
     -- This is a hacky solution that seems to use in the meantime.
-    vim.cmd[[colorscheme tokyonight-storm]]
-  end
+    vim.cmd([[colorscheme tokyonight-storm]])
+  end,
 })

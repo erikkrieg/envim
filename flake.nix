@@ -54,7 +54,10 @@
         };
         apps.default = apps.envim;
         devShell = mkShell {
-          buildInputs = [ packages.envim ];
+          buildInputs = [
+            packages.envim
+            stylua
+          ];
           # Sets up plugins in a local dir to allow testing without impacting user plugins.
           shellHook = ''
             alias c="clear"

@@ -1,9 +1,17 @@
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath("data")
+    .. "/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
+    fn.system({
+      "git",
+      "clone",
+      "--depth",
+      "1",
+      "https://github.com/wbthomason/packer.nvim",
+      install_path,
+    })
+    vim.cmd([[packadd packer.nvim]])
     return true
   end
   return false
@@ -11,54 +19,65 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-vim.cmd [[packadd packer.nvim]]
-require('packer').startup(function(use)
+vim.cmd([[packadd packer.nvim]])
+require("packer").startup(function(use)
   -- Plugin management
-  use 'wbthomason/packer.nvim'
+  use("wbthomason/packer.nvim")
 
   -- General Language
-  use('neovim/nvim-lspconfig')
-  use('hrsh7th/nvim-cmp')
-  use('hrsh7th/cmp-nvim-lsp')
-  use('hrsh7th/cmp-buffer')
-  use('hrsh7th/cmp-path')
-  use('L3MON4D3/LuaSnip')
-  use('saadparwaiz1/cmp_luasnip')
-  use('hrsh7th/cmp-cmdline')
-  use({'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'})
-  use('onsails/lspkind-nvim') -- Adds pictograms used by cmp formatter
-  use({'numToStr/Comment.nvim', -- Multi-line comments
-    config = function()
-      require('Comment').setup()
-    end
+  use("neovim/nvim-lspconfig")
+  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/cmp-nvim-lsp")
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-path")
+  use("L3MON4D3/LuaSnip")
+  use("saadparwaiz1/cmp_luasnip")
+  use("hrsh7th/cmp-cmdline")
+  use({
+    "tzachar/cmp-tabnine",
+    run = "./install.sh",
+    requires = "hrsh7th/nvim-cmp",
   })
-  use('sbdchd/neoformat')
+  use("onsails/lspkind-nvim") -- Adds pictograms used by cmp formatter
+  use({
+    "numToStr/Comment.nvim", -- Multi-line comments
+    config = function()
+      require("Comment").setup()
+    end,
+  })
+  use("sbdchd/neoformat")
 
   -- Specific Languages
-  use('simrat39/rust-tools.nvim')
-  use({ 'fatih/vim-go', run = ':GoUpdateBinaries' })
-  use('NoahTheDuke/vim-just')
-  use('hashivim/vim-terraform') -- Using this for syntax highlighting because lsp isn't providing it
-  use('zah/nim.vim')
+  use("simrat39/rust-tools.nvim")
+  use({ "fatih/vim-go", run = ":GoUpdateBinaries" })
+  use("NoahTheDuke/vim-just")
+  use("hashivim/vim-terraform") -- Using this for syntax highlighting because lsp isn't providing it
+  use("zah/nim.vim")
 
-  use({ 'nvim-treesitter/nvim-treesitter',
+  use({
+    "nvim-treesitter/nvim-treesitter",
     run = function()
-      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      local ts_update =
+        require("nvim-treesitter.install").update({ with_sync = true })
       ts_update()
-    end
+    end,
   })
-  use({"nvim-lua/plenary.nvim", requires = 'nvim-treesitter/nvim-treesitter'})
-  use({'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = 'nvim-lua/plenary.nvim'})
+  use({ "nvim-lua/plenary.nvim", requires = "nvim-treesitter/nvim-treesitter" })
+  use({
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.0",
+    requires = "nvim-lua/plenary.nvim",
+  })
   -- Themes
-  use({'dracula/vim', as = 'dracula'})
-  use({'folke/tokyonight.nvim', branch = 'main'})
+  use({ "dracula/vim", as = "dracula" })
+  use({ "folke/tokyonight.nvim", branch = "main" })
 
   -- Look into these themes plug:
   -- - https://github.com/sonph/onehalf
   -- - https://github.com/chriskempson/base16-vim/
 
   if packer_bootstrap then
-    require('packer').sync()
+    require("packer").sync()
   end
 end)
 
@@ -70,14 +89,13 @@ vim.g.go_highlight_function_calls = 1
 vim.g.go_highlight_types = 1
 vim.g.go_highlight_variable_declarations = 1
 vim.g.go_highlight_variable_assignments = 1
-vim.g.go_metalinter_enabled = {'vet', 'golint', 'errcheck'}
+vim.g.go_metalinter_enabled = { "vet", "golint", "errcheck" }
 vim.g.go_metalinter_autosave = 1
-vim.g.go_metalinter_deadline = '5s'
+vim.g.go_metalinter_deadline = "5s"
 vim.g.go_auto_type_info = 1
 
 -- neoformat
 vim.g.neoformat_try_node_exe = 1 -- look for prettier bin in node_modules
 
 -- tokyonight options
-vim.g.tokyonight_style = 'storm'
-
+vim.g.tokyonight_style = "storm"

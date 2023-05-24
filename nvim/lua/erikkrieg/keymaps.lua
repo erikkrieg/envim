@@ -29,4 +29,3 @@ keymap("n", "tl", "<cmd>tablast<cr>", opts)
 
 -- Insert
 keymap("i", "<M-BS>", "<c-w>", opts)
-
