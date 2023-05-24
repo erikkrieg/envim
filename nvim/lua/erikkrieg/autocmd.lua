@@ -1,5 +1,18 @@
 local autocmd = vim.api.nvim_create_autocmd
 
+local function auto_neoformat(pattern)
+  autocmd({ "BufWritePre" }, {
+    pattern = pattern,
+    callback = function()
+      vim.api.nvim_command("Neoformat")
+    end,
+  })
+end
+
+for pattern in { "*.rs", "*.py", "*.js", "*.lua", "*.nix" } do
+  auto_neoformat(pattern)
+end
+
 autocmd({ "CursorHold" }, {
   pattern = "*",
   callback = function()
@@ -8,45 +21,9 @@ autocmd({ "CursorHold" }, {
 })
 
 autocmd({ "BufWritePre" }, {
-  pattern = "*.rs",
-  callback = function()
-    vim.lsp.buf.formatting_sync(nil, 200)
-  end,
-})
-
-autocmd({ "BufWritePre" }, {
   pattern = { "*.tf", "*.tfvars" },
   callback = function()
     vim.lsp.buf.formatting_sync(nil, 200)
-  end,
-})
-
-autocmd({ "BufWritePre" }, {
-  pattern = "*.py",
-  callback = function()
-    -- Can be combined with yapf
-    vim.api.nvim_command("Neoformat")
-  end,
-})
-
-autocmd({ "BufWritePre" }, {
-  pattern = "*.js",
-  callback = function()
-    vim.api.nvim_command("Neoformat")
-  end,
-})
-
-autocmd({ "BufWritePre" }, {
-  pattern = "*.lua",
-  callback = function()
-    vim.api.nvim_command("Neoformat")
-  end,
-})
-
-autocmd({ "BufWritePre" }, {
-  pattern = "*.nix",
-  callback = function()
-    vim.api.nvim_command("Neoformat")
   end,
 })
 
