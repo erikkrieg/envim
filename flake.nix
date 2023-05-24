@@ -19,7 +19,6 @@
           nodePackages.bash-language-server
           nodePackages.typescript-language-server
           tree-sitter
-          unzip # needed to install tabnine
         ];
       in
       with pkgs; rec {
