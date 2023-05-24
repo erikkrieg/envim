@@ -37,6 +37,13 @@ autocmd({"BufWritePre"}, {
 })
 
 autocmd({"BufWritePre"}, {
+  pattern = "*.lua",
+  callback = function ()
+    vim.api.nvim_command("Neoformat")
+  end
+})
+
+autocmd({"BufWritePre"}, {
   pattern = "*.nix",
   callback = function ()
     vim.api.nvim_command("Neoformat")

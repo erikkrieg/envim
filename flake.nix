@@ -19,6 +19,10 @@
           nodePackages.bash-language-server
           nodePackages.typescript-language-server
           tree-sitter
+
+          # Lua 
+          lua-language-server
+          stylua
         ];
       in
       with pkgs; rec {
