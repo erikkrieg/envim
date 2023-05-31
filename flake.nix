@@ -19,6 +19,7 @@
           nodePackages.bash-language-server
           nodePackages.typescript-language-server
           tree-sitter
+          # rust-analyzer - not installed here because I define it in my nix-shells
 
           # Lua 
           lua-language-server
