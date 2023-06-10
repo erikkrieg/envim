@@ -17,6 +17,7 @@
           nixpkgs-fmt
           nodejs-slim_20
           nodePackages.bash-language-server
+          nodePackages.prettier # Used to format several languages
           nodePackages.typescript-language-server
           nodePackages.yaml-language-server
           tree-sitter
