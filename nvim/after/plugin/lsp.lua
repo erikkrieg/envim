@@ -107,6 +107,7 @@ require("lspconfig").lua_ls.setup(config({
 require("lspconfig").yamlls.setup(config({
   settings = {
     yaml = {
+      keyOrdering = false,
       -- Issues with schemas for different k8s versions:
       -- https://github.com/redhat-developer/yaml-language-server/issues/211
       schemas = {
