@@ -17,6 +17,8 @@ for _, pattern in ipairs({
   "*.nix",
   "*.yaml",
   "*.yml",
+  "*.sh",
+  "*.zsh",
 }) do
   auto_neoformat(pattern)
 end
@@ -43,3 +45,5 @@ autocmd({ "VimEnter" }, {
     vim.cmd([[colorscheme tokyonight-storm]])
   end,
 })
+
+vim.g.shfmt_opt = "-ci"
