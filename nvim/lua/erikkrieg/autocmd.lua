@@ -9,7 +9,15 @@ local function auto_neoformat(pattern)
   })
 end
 
-for _, pattern in ipairs({ "*.rs", "*.py", "*.js", "*.lua", "*.nix" }) do
+for _, pattern in ipairs({
+  "*.rs",
+  "*.py",
+  "*.js",
+  "*.lua",
+  "*.nix",
+  "*.yaml",
+  "*.yml",
+}) do
   auto_neoformat(pattern)
 end
 
