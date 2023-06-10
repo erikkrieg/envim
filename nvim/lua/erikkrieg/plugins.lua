@@ -53,6 +53,7 @@ require("packer").startup(function(use)
   use("NoahTheDuke/vim-just")
   use("hashivim/vim-terraform") -- Using this for syntax highlighting because lsp isn't providing it
   use("zah/nim.vim")
+  use({ "imsnif/kdl.vim", commit = "b84d7d3a15d8d30da016cf9e98e2cfbe35cddee5" }) -- KDL does not currently have an LSP
 
   use({
     "nvim-treesitter/nvim-treesitter",
