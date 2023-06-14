@@ -33,3 +33,7 @@ keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 -- Insert
 keymap("i", "<M-BS>", "<c-w>", opts)
+
+-- Visual
+-- Paste over currently selected text without yanking it
+keymap("v", "p", '"_dP', opts)
