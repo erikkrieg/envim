@@ -20,6 +20,7 @@
           nodePackages.prettier # Used to format several languages
           nodePackages.typescript-language-server
           nodePackages.yaml-language-server
+          marksman # Markdown LSP
           tree-sitter
           shfmt
           # rust-analyzer - not installed here because I define it in my nix-shells

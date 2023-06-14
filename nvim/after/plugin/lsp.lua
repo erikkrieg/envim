@@ -116,3 +116,5 @@ require("lspconfig").yamlls.setup(config({
     },
   },
 }))
+
+require("lspconfig").marksman.setup(config({}))
