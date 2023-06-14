@@ -10,14 +10,15 @@ local function auto_neoformat(pattern)
 end
 
 for _, pattern in ipairs({
-  "*.rs",
-  "*.py",
   "*.js",
   "*.lua",
+  "*.md",
   "*.nix",
+  "*.py",
+  "*.rs",
+  "*.sh",
   "*.yaml",
   "*.yml",
-  "*.sh",
   "*.zsh",
 }) do
   auto_neoformat(pattern)
