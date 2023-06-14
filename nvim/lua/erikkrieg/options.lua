@@ -39,3 +39,5 @@ vim.cmd("syntax on")
 -- cursorhold events. The resource usage will be increased, tho.
 v.updatetime = 300
 v.clipboard = "unnamedplus"
+v.spell = true
+v.spelllang = "en_us"
