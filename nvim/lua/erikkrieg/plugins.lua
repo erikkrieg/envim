@@ -98,6 +98,7 @@ require("packer").startup(function(use)
   -- Look into these themes plug:
   -- - https://github.com/sonph/onehalf
   -- - https://github.com/chriskempson/base16-vim/
+  -- use 'rcarriga/nvim-notify'
 
   if packer_bootstrap then
     require("packer").sync()
