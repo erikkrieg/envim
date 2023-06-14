@@ -31,6 +31,10 @@ keymap("n", "tl", "<cmd>tablast<cr>", opts)
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
+-- Center window vertically when cycling matches
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
+
 -- Insert
 keymap("i", "<M-BS>", "<c-w>", opts)
 
