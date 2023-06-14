@@ -46,6 +46,17 @@ require("packer").startup(function(use)
     end,
   })
   use("sbdchd/neoformat")
+  use({
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 500
+      require("which-key").setup({
+        -- Additional configuration can be set here
+        -- https://github.com/folke/which-key.nvim#%EF%B8%8F-configuration
+      })
+    end,
+  })
 
   -- Specific Languages
   use("simrat39/rust-tools.nvim")
@@ -69,6 +80,7 @@ require("packer").startup(function(use)
     tag = "0.1.0",
     requires = "nvim-lua/plenary.nvim",
   })
+
   -- Themes
   use({ "dracula/vim", as = "dracula" })
   use({ "folke/tokyonight.nvim", branch = "main" })
