@@ -67,7 +67,7 @@
             alias c="clear"
             alias l="ls -la"
             alias v="nvim"
-            export XDG_CONFIG_HOME="$(pwd)/.dev/config"
+            export XDG_CONFIG_HOME="$(pwd)"
             export XDG_DATA_HOME="$(pwd)/.dev/data"
             export XDG_STATE_HOME="$(pwd)/.dev/state"
             export XDG_CACHE_HOME="$(pwd)/.dev/cache"
