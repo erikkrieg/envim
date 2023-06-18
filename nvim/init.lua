@@ -1,1 +1,1 @@
-require("erikkrieg")
+print("empty")
