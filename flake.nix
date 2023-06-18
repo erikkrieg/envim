@@ -70,7 +70,8 @@
             export XDG_CONFIG_HOME="$(pwd)/.dev/config"
             export XDG_DATA_HOME="$(pwd)/.dev/data"
             export XDG_STATE_HOME="$(pwd)/.dev/state"
-            mkdir -p $XDG_CONFIG_HOME $XDG_DATA_HOME $XDG_STATE_HOME
+            export XDG_CACHE_HOME="$(pwd)/.dev/cache"
+            mkdir -p $XDG_CONFIG_HOME $XDG_DATA_HOME $XDG_STATE_HOME $XDG_CACHE_HOME
           '';
         };
       });
