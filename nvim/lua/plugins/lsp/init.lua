@@ -13,9 +13,16 @@ return {
       { "L3MON4D3/LuaSnip" },
       { "saadparwaiz1/cmp_luasnip" },
       { "hrsh7th/cmp-cmdline" },
+      { "onsails/lspkind-nvim" },
+      {
+        "tzachar/cmp-tabnine",
+        build = "./install.sh",
+        dependencies = "hrsh7th/nvim-cmp",
+      },
     },
     config = function()
       require("plugins.lsp.servers").setup()
+      require("plugins.lsp.completions").setup()
     end,
   },
 }
