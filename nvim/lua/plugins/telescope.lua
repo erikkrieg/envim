@@ -1,7 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   version = "0.1.2",
-  dependencies = { "folke/which-key.nvim", "nvim-lua/plenary.nvim" },
+  dependencies = { "nvim-lua/plenary.nvim" },
   cmd = "Telescope",
   keys = {
     { "<leader><space>", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
