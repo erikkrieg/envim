@@ -10,6 +10,7 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     lazy = false,
+    priority = 900,
     config = function()
       vim.opt.list = true
       vim.opt.listchars:append("eol:↴")
