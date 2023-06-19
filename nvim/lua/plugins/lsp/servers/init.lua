@@ -29,6 +29,7 @@ local on_attach = function(client, bufnr)
 end
 
 M.setup = function()
+  local lsp = require("lspconfig")
   local capabilities = require("cmp_nvim_lsp").default_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -39,24 +40,7 @@ M.setup = function()
     return cfg
   end
 
-  require("lspconfig").lua_ls.setup(config({
-    settings = {
-      Lua = {
-        runtime = {
-          version = "LuaJIT",
-        },
-        diagnostics = {
-          globals = { "vim" },
-        },
-        workspace = {
-          library = vim.api.nvim_get_runtime_file("", true),
-        },
-        telemetry = {
-          enable = false,
-        },
-      },
-    },
-  }))
+  lsp.lua_ls.setup(config(require("plugins.lsp.servers.lua")))
 end
 
 return M
