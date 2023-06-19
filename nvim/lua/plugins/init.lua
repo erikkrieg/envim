@@ -1,13 +1,13 @@
 return {
   "nvim-lua/plenary.nvim",
-  {
-    "numToStr/Comment.nvim", -- Multi-line comments
+  { -- Multi-line comments
+    "numToStr/Comment.nvim",
     event = "BufReadPre",
     config = function()
       require("Comment").setup()
     end,
   },
-  {
+  { -- Helpful rendering of white space and indent levels
     "lukas-reineke/indent-blankline.nvim",
     lazy = false,
     priority = 900,
