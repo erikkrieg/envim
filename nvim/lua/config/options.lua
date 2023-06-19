@@ -41,3 +41,4 @@ v.clipboard = "unnamedplus"
 v.spell = true
 v.spelllang = "en_us"
 g.mapleader = " " -- Set before lazy so mappings are correct
+g.maplocalleader = g.mapleader
