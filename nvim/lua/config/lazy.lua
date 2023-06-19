@@ -35,7 +35,7 @@ local function setup()
   })
   vim.keymap.set(
     "n",
-    "<leader>z",
+    "<leader>p",
     "<cmd>:Lazy<cr>",
     { desc = "Plugin Manager" }
   )
