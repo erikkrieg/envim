@@ -23,6 +23,7 @@
           marksman # Markdown LSP
           tree-sitter
           shfmt
+          gopls # Go LSP
           # rust-analyzer - not installed here because I define it in my nix-shells
 
           # Lua 
