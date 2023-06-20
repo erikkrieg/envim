@@ -30,4 +30,8 @@ return {
     version = "b84d7d3a15d8d30da016cf9e98e2cfbe35cddee5",
     ft = { "kdl" },
   },
+  { -- Vim syntax files for justfiles
+    "NoahTheDuke/vim-just",
+    event = "BufReadPre",
+  },
 }
