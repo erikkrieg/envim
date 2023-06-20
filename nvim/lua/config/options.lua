@@ -25,7 +25,6 @@ v.ignorecase = true
 v.smartcase = true
 
 -- Menus
-v.completeopt = "menu,menuone,preview,noselect"
 v.pumheight = 20
 
 -- Theme
