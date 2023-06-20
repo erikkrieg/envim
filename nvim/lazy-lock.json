@@ -26,6 +26,7 @@
   "styler.nvim": { "branch": "main", "commit": "d5b7e43af4fdaa06e4175c84f4f57b633ae7e6ff" },
   "telescope.nvim": { "branch": "master", "commit": "776b509f80dd49d8205b9b0d94485568236d1192" },
   "tokyonight.nvim": { "branch": "main", "commit": "9a0deaa85219b18a9b7544098d1a1b16d396d856" },
+  "vim-go": { "branch": "master", "commit": "397a9c5796a5082b55b71dd3b55152dcf53261de" },
   "vim-just": { "branch": "main", "commit": "9fc9a1afaa9e3567b25f4141a01f6172a1992a0b" },
   "which-key.nvim": { "branch": "main", "commit": "d871f2b664afd5aed3dc1d1573bef2fb24ce0484" }
 }

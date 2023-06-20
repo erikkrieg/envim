@@ -34,4 +34,9 @@ return {
     "NoahTheDuke/vim-just",
     event = "BufReadPre",
   },
+  { -- Better language support for Go (lsp features are a bit lacking)
+    "fatih/vim-go",
+    ft = "go",
+    build = ":GoUpdateBinaries",
+  },
 }
