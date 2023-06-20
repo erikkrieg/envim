@@ -4,7 +4,6 @@ return {
     event = "BufReadPre",
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-      { "folke/neodev.nvim", config = true },
       { "neovim/nvim-lspconfig" },
       { "hrsh7th/nvim-cmp" },
       { "hrsh7th/cmp-nvim-lsp" },
@@ -18,6 +17,15 @@ return {
         "tzachar/cmp-tabnine",
         build = "./install.sh",
         dependencies = "hrsh7th/nvim-cmp",
+      },
+
+      -- Plugins for specific languages
+      { -- Neovim Lua LSP features
+        "folke/neodev.nvim",
+        config = true,
+      },
+      { -- Rust LSP configuration
+        "simrat39/rust-tools.nvim",
       },
     },
     config = function()
