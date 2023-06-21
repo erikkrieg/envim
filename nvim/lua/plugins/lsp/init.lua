@@ -6,7 +6,12 @@ return {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
 
       -- LSP progress UI
-      { "j-hui/fidget.nvim", config = true, version = "legacy" },
+      {
+        "j-hui/fidget.nvim",
+        config = true,
+        -- Pin to legacy to avoid breaking changes
+        commit = "0ba1e16d07627532b6cae915cc992ecac249fb97",
+      },
 
       -- Provides LSP capabilities
       "hrsh7th/cmp-nvim-lsp",
