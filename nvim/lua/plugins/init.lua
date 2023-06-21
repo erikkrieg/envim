@@ -38,6 +38,18 @@ return {
     "fatih/vim-go",
     ft = "go",
     build = ":GoUpdateBinaries",
+    config = function()
+      vim.g.go_highlight_operators = 1
+      vim.g.go_highlight_functions = 1
+      vim.g.go_highlight_function_calls = 1
+      vim.g.go_highlight_types = 1
+      vim.g.go_highlight_variable_declarations = 1
+      vim.g.go_highlight_variable_assignments = 1
+      vim.g.go_metalinter_enabled = { "vet", "golint", "errcheck" }
+      vim.g.go_metalinter_autosave = 1
+      vim.g.go_metalinter_deadline = "5s"
+      vim.g.go_auto_type_info = 1
+    end,
   },
   { -- Terraform syntax highlighting (look into other options)
     "hashivim/vim-terraform",
