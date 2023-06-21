@@ -39,4 +39,8 @@ return {
     ft = "go",
     build = ":GoUpdateBinaries",
   },
+  { -- Terraform syntax highlighting (look into other options)
+    "hashivim/vim-terraform",
+    ft = { "tf", "tfvar" },
+  },
 }
