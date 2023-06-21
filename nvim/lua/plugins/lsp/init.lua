@@ -20,4 +20,5 @@ return {
       require("plugins.lsp.servers").setup()
     end,
   },
+  require("plugins.lsp.format"),
 }
