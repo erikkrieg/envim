@@ -10,6 +10,7 @@ local file_extensions = {
   "yml",
   "zsh",
 }
+
 return {
   "sbdchd/neoformat",
   ft = file_extensions,
