@@ -5,6 +5,9 @@ return {
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
 
+      -- LSP progress UI
+      { "j-hui/fidget.nvim", config = true, version = "legacy" },
+
       -- Provides LSP capabilities
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lsp-signature-help",
