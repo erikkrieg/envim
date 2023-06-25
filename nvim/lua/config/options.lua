@@ -32,6 +32,10 @@ v.termguicolors = true
 v.background = "dark"
 vim.cmd("syntax on")
 
+-- ftplugins
+-- Default markdown ftplugin changes my settings
+vim.g.markdown_recommended_style = 0
+
 -- Misc
 -- Reducing updatetime is will improve perceived performance of features using
 -- cursorhold events. The resource usage will be increased, tho.
