@@ -152,6 +152,9 @@ vim.g.go_metalinter_autosave = 1
 vim.g.go_metalinter_deadline = "5s"
 vim.g.go_auto_type_info = 1
 
+-- Default markdown ftplugin changes my settings
+vim.g.markdown_recommended_style = 0
+
 -- neoformat
 vim.g.neoformat_try_node_exe = 1 -- look for prettier bin in node_modules
 
