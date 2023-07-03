@@ -23,6 +23,7 @@
           marksman # Markdown LSP
           tree-sitter
           shfmt
+          gopls # Go LSP
           # rust-analyzer - not installed here because I define it in my nix-shells
 
           # Lua 
@@ -43,8 +44,7 @@
             customRC = ''
               lua << EOF
               vim.o.runtimepath = table.concat({ 
-                "${self}/nvim", "${self}/nvim/after",
-                vim.o.runtimepath
+                "${self}/nvim", vim.o.runtimepath
               }, ",")
             ''
             + pkgs.lib.readFile ./nvim/init.lua
@@ -68,14 +68,11 @@
             alias c="clear"
             alias l="ls -la"
             alias v="nvim"
-            export XDG_DATA_HOME="$(pwd)/.data"
-            mkdir -p $XDG_DATA_HOME
-            nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-            tabnine="$XDG_DATA_HOME/nvim/site/pack/packer/start/cmp-tabnine"
-            if [ ! -f "$tabnine/binaries/.active" ]; then
-              "$tabnine/install.sh"
-            fi
-            echo
+            export XDG_CONFIG_HOME="$(pwd)"
+            export XDG_DATA_HOME="$(pwd)/.dev/data"
+            export XDG_STATE_HOME="$(pwd)/.dev/state"
+            export XDG_CACHE_HOME="$(pwd)/.dev/cache"
+            mkdir -p $XDG_CONFIG_HOME $XDG_DATA_HOME $XDG_STATE_HOME $XDG_CACHE_HOME
           '';
         };
       });

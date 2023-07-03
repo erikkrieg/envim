@@ -1,5 +1,5 @@
--- Global variables
 local v = vim.opt
+local g = vim.g
 
 -- Indentation
 local tabSize = 2
@@ -25,14 +25,16 @@ v.ignorecase = true
 v.smartcase = true
 
 -- Menus
-v.completeopt = "menu,menuone,preview,noselect"
 v.pumheight = 20
 
 -- Theme
 v.termguicolors = true
 v.background = "dark"
-vim.cmd("colorscheme tokyonight-storm")
 vim.cmd("syntax on")
+
+-- ftplugins
+-- Default markdown ftplugin changes my settings
+vim.g.markdown_recommended_style = 0
 
 -- Misc
 -- Reducing updatetime is will improve perceived performance of features using
@@ -41,3 +43,5 @@ v.updatetime = 300
 v.clipboard = "unnamedplus"
 v.spell = true
 v.spelllang = "en_us"
+g.mapleader = " " -- Set before lazy so mappings are correct
+g.maplocalleader = g.mapleader
