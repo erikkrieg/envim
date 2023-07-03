@@ -13,7 +13,7 @@ local file_extensions = {
 
 return {
   "sbdchd/neoformat",
-  ft = file_extensions,
+  lazy = false,
   config = function()
     local autocmd = vim.api.nvim_create_autocmd
     local function auto_neoformat(pattern)
