@@ -20,6 +20,9 @@ return {
       -- Plugins for specific languages
       { "folke/neodev.nvim", config = true }, -- Neovim Lua LSP features
       "simrat39/rust-tools.nvim", -- Easier Rust LSP config
+
+      -- Misc
+      { "smjonas/inc-rename.nvim", config = true },
     },
     config = function()
       require("plugins.lsp.servers").setup()
