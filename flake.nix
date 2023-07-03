@@ -44,10 +44,14 @@
             customRC = ''
               lua << EOF
               vim.o.runtimepath = table.concat({ 
-                "${self}/nvim", "${self}/nvim/lua", vim.o.runtimepath
+                "${self}/nvim", vim.o.runtimepath
               }, ",")
             ''
             + pkgs.lib.readFile ./nvim/init.lua
+            + ''
+              -- User autocmd does not have config in path without this
+              vim.opt.rtp:prepend("${self}/nvim")
+            ''
             + ''EOF'';
           };
         };
