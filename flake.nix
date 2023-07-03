@@ -44,7 +44,7 @@
             customRC = ''
               lua << EOF
               vim.o.runtimepath = table.concat({ 
-                "${self}/nvim", vim.o.runtimepath
+                "${self}", vim.o.runtimepath
               }, ",")
             ''
             + pkgs.lib.readFile ./nvim/init.lua
