@@ -10,6 +10,7 @@ return {
       { "hrsh7th/cmp-cmdline" },
       { "onsails/lspkind-nvim" },
       { "tzachar/cmp-tabnine", build = "./install.sh" },
+      { "windwp/nvim-autopairs", opts = {} },
     },
     config = function()
       local cmp = require("cmp")
