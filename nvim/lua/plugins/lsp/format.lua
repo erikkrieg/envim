@@ -15,12 +15,15 @@ return {
   "sbdchd/neoformat",
   lazy = false,
   config = function()
+    vim.g.lsp_format = 1
     local autocmd = vim.api.nvim_create_autocmd
     local function auto_neoformat(pattern)
       autocmd({ "BufWritePre" }, {
         pattern = pattern,
         callback = function()
-          vim.api.nvim_command("Neoformat")
+          if vim.g.lsp_format == 1 then
+            vim.api.nvim_command("Neoformat")
+          end
         end,
       })
     end
