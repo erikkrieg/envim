@@ -49,8 +49,24 @@ M.setup = function()
   -- Nix
   require("lspconfig").nil_ls.setup(config({}))
 
+  -- Helm
+  local configs = require("lspconfig.configs")
+  local util = require("lspconfig.util")
+  if not configs.helm_ls then
+    configs.helm_ls = {
+      default_config = {
+        cmd = { "helm_ls", "serve" },
+        filetypes = { "helm" },
+        root_dir = function(fname)
+          return util.root_pattern("Chart.yaml")(fname)
+        end,
+      },
+    }
+  end
+  lsp.helm_ls.setup(config({}))
+
   -- Yaml
-  require("lspconfig").yamlls.setup(config({
+  local yamlconfig = config({
     settings = {
       yaml = {
         keyOrdering = false,
@@ -61,7 +77,18 @@ M.setup = function()
         },
       },
     },
-  }))
+  })
+  local yaml_attach = yamlconfig.on_attach
+  yamlconfig.on_attach = function(client, bufnr)
+    -- yamlls does not play nice with helm files
+    -- https://github.com/redhat-developer/yaml-language-server/issues/220
+    if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+      vim.lsp.stop_client(client.id)
+    else
+      yaml_attach(client, bufnr)
+    end
+  end
+  require("lspconfig").yamlls.setup(yamlconfig)
 
   -- Markdown
   require("lspconfig").marksman.setup(config({}))

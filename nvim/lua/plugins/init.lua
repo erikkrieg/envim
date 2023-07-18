@@ -55,4 +55,8 @@ return {
     "hashivim/vim-terraform",
     ft = { "tf", "tfvar" },
   },
+  {
+    "towolf/vim-helm",
+    ft = { "yaml" },
+  },
 }
