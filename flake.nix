@@ -25,7 +25,11 @@
           shfmt
           gopls # Go LSP
           helm-ls # Helm LSP
-          terraform-ls # Terraform LSP
+
+          # Terraform LSP packages
+          terraform-ls
+          tflint
+
           # rust-analyzer - not installed here because I define it in my nix-shells
 
           # Lua 
