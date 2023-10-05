@@ -2,7 +2,7 @@ return {
   "nvim-lua/plenary.nvim",
   { -- Multi-line comments
     "numToStr/Comment.nvim",
-    event = "BufReadPre",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("Comment").setup()
     end,
@@ -30,7 +30,7 @@ return {
   },
   { -- Vim syntax files for justfiles
     "NoahTheDuke/vim-just",
-    event = "BufReadPre",
+    event = { "BufReadPre", "BufNewFile" },
   },
   { -- Better language support for Go (lsp features are a bit lacking)
     "fatih/vim-go",
