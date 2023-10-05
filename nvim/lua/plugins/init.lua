@@ -31,6 +31,7 @@ return {
   { -- Vim syntax files for justfiles
     "NoahTheDuke/vim-just",
     event = { "BufReadPre", "BufNewFile" },
+    ft = { "\\cjustfile", "*.just", ".justfile" },
   },
   { -- Better language support for Go (lsp features are a bit lacking)
     "fatih/vim-go",
