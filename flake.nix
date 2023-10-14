@@ -24,6 +24,7 @@
           tree-sitter
           shfmt
           gopls # Go LSP
+          go-tools # vim-go
           helm-ls # Helm LSP
 
           # Terraform LSP packages
