@@ -25,6 +25,7 @@
           shfmt
           gopls # Go LSP
           go-tools # vim-go
+          delve # Debugger for Go
           helm-ls # Helm LSP
 
           # Terraform LSP packages
