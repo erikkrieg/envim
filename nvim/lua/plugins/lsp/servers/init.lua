@@ -49,6 +49,9 @@ M.setup = function()
   -- Nix
   require("lspconfig").nil_ls.setup(config({}))
 
+  -- Haskell
+  require("lspconfig").hls.setup(config({}))
+
   -- Helm
   local configs = require("lspconfig.configs")
   local util = require("lspconfig.util")
