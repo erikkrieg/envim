@@ -22,13 +22,6 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
     build = ":TSUpdate",
     event = "BufReadPost",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        highlight = {
-          enable = true,
-        },
-      })
-    end,
   },
   { -- KDL does not currently have an LSP
     "imsnif/kdl.vim",
@@ -64,5 +57,10 @@ return {
   {
     "towolf/vim-helm",
     ft = { "yaml" },
+  },
+  {
+    "mrcjkb/haskell-tools.nvim",
+    version = "^3",
+    ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
   },
 }
