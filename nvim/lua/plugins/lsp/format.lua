@@ -35,5 +35,6 @@ return {
     vim.g.shfmt_opt = "-ci"
     -- look for prettier bin in node_modules
     vim.g.neoformat_try_node_exe = 1
+    vim.g.neoformat_enabled_haskell = { "ormolu" }
   end,
 }

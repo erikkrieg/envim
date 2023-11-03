@@ -14,6 +14,7 @@
           fzf
           git
           nil
+          ormolu # Haskell formatter
           nixpkgs-fmt
           nodejs-slim_20
           nodePackages.bash-language-server
