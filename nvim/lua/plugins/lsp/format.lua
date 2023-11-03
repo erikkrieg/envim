@@ -1,4 +1,6 @@
 local file_extensions = {
+  "cabal",
+  "hs",
   "js",
   "lua",
   "md",
