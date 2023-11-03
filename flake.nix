@@ -15,6 +15,7 @@
           git
           nil
           nixpkgs-fmt
+          ormolu # Haskell formatter
           nodejs-slim_20
           nodePackages.bash-language-server
           nodePackages.prettier # Used to format several languages

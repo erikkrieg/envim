@@ -35,6 +35,10 @@ return {
     vim.g.shfmt_opt = "-ci"
     -- look for prettier bin in node_modules
     vim.g.neoformat_try_node_exe = 1
+
+    -- Tip for formatting haskell code with ormolu
+    -- https://github.com/sbdchd/neoformat/issues/283#issuecomment-623254439
+    vim.g.neoformat_haskell_ormolu = { exe = "ormolu", args = {} }
     vim.g.neoformat_enabled_haskell = { "ormolu" }
   end,
 }
