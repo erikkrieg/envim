@@ -22,6 +22,13 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
     build = ":TSUpdate",
     event = "BufReadPost",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        highlight = {
+          enable = true,
+        },
+      })
+    end,
   },
   { -- KDL does not currently have an LSP
     "imsnif/kdl.vim",
