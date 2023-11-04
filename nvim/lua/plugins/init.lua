@@ -25,6 +25,7 @@ return {
     config = function()
       local configs = require("nvim-treesitter.configs")
       configs.setup({
+        parser_install_dir = vim.fn.stdpath("data") .. "/parsers",
         ensure_installed = {
           "bash",
           "css",
