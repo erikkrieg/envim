@@ -10,7 +10,6 @@ local file_extensions = {
   "sh",
   "yaml",
   "yml",
-  "zsh",
 }
 
 return {
