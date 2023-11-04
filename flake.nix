@@ -11,7 +11,6 @@
       let
         pkgs = import nixpkgs { inherit system; };
         extraPackages = with pkgs; [
-          xcbuild # Used by nvim-treesitter to install language parsers
           fzf
           git
           nil
