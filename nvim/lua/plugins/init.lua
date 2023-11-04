@@ -19,6 +19,7 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
     build = ":TSUpdate",
     event = "BufReadPost",
@@ -62,5 +63,6 @@ return {
     "mrcjkb/haskell-tools.nvim",
     version = "^3",
     ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
 }
