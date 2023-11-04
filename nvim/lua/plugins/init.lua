@@ -40,7 +40,6 @@ return {
           "toml",
           "yaml",
           "rust",
-          "zsh",
         },
         sync_install = false,
         ignore_install = { "" }, -- List of parsers to ignore installing
