@@ -20,6 +20,6 @@ return {
 
   -- These options were for lazy loading when the given command is run or
   -- keys are inputted.
-  -- cmd = "Telescope",
-  -- keys = keys,
+  cmd = "Telescope",
+  keys = keys,
 }

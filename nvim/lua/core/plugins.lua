@@ -9,7 +9,9 @@ M.load = function(opts)
     opts.config()
   else
     for i, plugin in pairs(opts) do
-      plugin.config()
+      if plugin.config ~= nil then
+        plugin.config()
+      end
     end
   end
 end
