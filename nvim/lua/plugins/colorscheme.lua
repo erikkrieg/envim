@@ -1,6 +1,6 @@
 return {
   {
-    "folke/styler.nvim",
+    name = "folke/styler.nvim",
     event = "VeryLazy",
     config = function()
       require("styler").setup({
@@ -11,7 +11,7 @@ return {
     end,
   },
   {
-    "folke/tokyonight.nvim",
+    name = "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     config = function()
@@ -21,9 +21,11 @@ return {
     end,
   },
   {
-    "catppuccin/nvim",
+    name = "catppuccin/nvim",
     lazy = false,
-    name = "catppuccin",
     priority = 1000,
+    config = function()
+      require("catppuccin")
+    end,
   },
 }
