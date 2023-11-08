@@ -27,6 +27,7 @@
             };
           plugins = with pkgs.vimPlugins; [
             # common (used by other plugins)
+            plenary-nvim
             nvim-web-devicons
 
             # UI
