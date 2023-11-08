@@ -26,16 +26,20 @@
               };
             };
           plugins = with pkgs.vimPlugins; [
-            lazy-nvim
-            alpha-nvim
+            # common (used by other plugins)
             nvim-web-devicons
-            telescope-nvim
-            nvim-treesitter.withAllGrammars
 
-            # colorscheme
+            # UI
+            alpha-nvim
+            telescope-nvim
+
+            # Theming
             styler-nvim
             catppuccin-nvim
             tokyonight-nvim
+
+            # Syntax
+            nvim-treesitter.withAllGrammars
           ];
           packpathDirs.myNeovimPackages = {
             start = plugins;
