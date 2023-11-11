@@ -71,6 +71,7 @@ return {
       vim.g.go_metalinter_autosave = 1
       vim.g.go_metalinter_deadline = "5s"
       vim.g.go_auto_type_info = 1
+      vim.g.go_info_mode = "guru"
     end,
   },
   { -- Terraform syntax highlighting (look into other options)
