@@ -1,4 +1,4 @@
-{ pkgs, ... }: with pkgs; {
+{ pkgs, ... }: with pkgs; rec {
   packages = [
     fzf
     git
