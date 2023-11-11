@@ -13,10 +13,14 @@
     marksman # Markdown LSP
     tree-sitter
     shfmt
-    gopls # Go LSP
-    go-tools # vim-go
-    delve # Debugger for Go
     helm-ls # Helm LSP
+
+    # For Go (vim-go plugin)
+    gopls # Go LSP
+    delve # Debugger
+    go-tools # vim-go
+    revive # Linter
+
 
     # Terraform LSP packages
     terraform-ls
