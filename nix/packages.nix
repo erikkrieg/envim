@@ -10,6 +10,7 @@
     go-tools # Bunch of tools, includes [staticcheck, keyify]
     godef # Print where symbols are defined in Go source code
     golangci-lint
+    golint
     gomodifytags
     gopls # Go LSP
     gotools # Bunch of tools, includes [goimports, guru, gorename, gotags]
