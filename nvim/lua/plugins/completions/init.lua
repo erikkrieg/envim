@@ -121,7 +121,7 @@ return {
       end,
     },
     config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_vscode").load()
       require("luasnip").setup({
         keep_roots = true,
         link_roots = true,
