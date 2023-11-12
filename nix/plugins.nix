@@ -55,6 +55,7 @@ let
     telescope-nvim
     fidget-nvim
     which-key-nvim
+    lualine-nvim
 
     # Theming
     styler-nvim
