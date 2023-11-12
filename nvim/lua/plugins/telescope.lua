@@ -6,6 +6,7 @@ local keys = {
   { "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Git Files" },
   { "<leader>f/", "<cmd>Telescope live_grep<cr>", desc = "Grep" },
   { "<leader>ft", "<cmd>Telescope<cr>", desc = "Telescope options" },
+  { "<leader>f=", "<cmd>Telescope spell_suggest<cr>", desc = "Spell suggest" },
 }
 
 return {
