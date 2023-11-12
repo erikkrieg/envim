@@ -88,7 +88,7 @@ let
     vim-just
     vim-helm
     vim-kdl
-    # vim-go
+    vim-go
     vim-terraform
     haskell-tools-nvim
     neoconf-nvim
