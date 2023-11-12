@@ -7,16 +7,6 @@ return {
       require("Comment").setup()
     end,
   },
-  { -- Helpful rendering of white space and indent levels
-    "lukas-reineke/indent-blankline.nvim",
-    lazy = false,
-    priority = 900,
-    config = function()
-      vim.opt.list = true
-      vim.opt.listchars:append("eol:↴")
-      require("ibl").setup()
-    end,
-  },
   {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
@@ -148,6 +138,16 @@ return {
         inactive_winbar = {},
         extensions = {},
       })
+    end,
+  },
+  { -- Helpful rendering of white space and indent levels
+    "lukas-reineke/indent-blankline.nvim",
+    lazy = false,
+    priority = 900,
+    config = function()
+      vim.opt.list = true
+      vim.opt.listchars:append("eol:↴")
+      require("ibl").setup()
     end,
   },
 }
