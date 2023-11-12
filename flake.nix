@@ -7,7 +7,7 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { flake-utils, nixpkgs, ... }:
+  outputs = { flake-utils, nixpkgs, unstable, ... }:
     flake-utils.lib.eachDefaultSystem
       (system:
         let
@@ -15,7 +15,11 @@
             inherit system;
             config.allowUnfree = true;
           };
-          inherit (import ./nix { inherit pkgs; }) plugins packagesPath;
+          unpkgs = import unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          inherit (import ./nix { inherit pkgs unpkgs; }) plugins packagesPath;
           initFile = pkgs.writeTextFile {
             name = "init.lua";
             text = ''

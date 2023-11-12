@@ -1,4 +1,4 @@
-{ pkgs, ... }: with pkgs;
+{ pkgs, unpkgs, ... }: with pkgs;
 let
   styler-nvim = vimUtils.buildVimPlugin {
     name = "styler.nvim";
@@ -40,6 +40,11 @@ let
       sha256 = "sha256-IajKK1EjrKs6b2rotOj+RlBBge9Ii2m/iuIuefnjAE4=";
     };
   };
+
+  unstablePlugins = with unpkgs.vimPlugins; [
+    indent-blankline-nvim
+  ];
+
   plugins = with pkgs.vimPlugins; [
     # common (used by other plugins)
     plenary-nvim
@@ -59,7 +64,6 @@ let
     comment-nvim
 
     # Syntax
-    indent-blankline-nvim
     nvim-treesitter-textobjects
     nvim-treesitter.withAllGrammars
     nvim-lspconfig
@@ -88,7 +92,7 @@ let
     neoconf-nvim
     neodev-nvim
     rust-tools-nvim
-  ];
+  ] ++ unstablePlugins;
 in
 {
   inherit plugins;
