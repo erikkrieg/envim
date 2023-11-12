@@ -54,6 +54,7 @@ let
     alpha-nvim
     telescope-nvim
     fidget-nvim
+    which-key-nvim
 
     # Theming
     styler-nvim
