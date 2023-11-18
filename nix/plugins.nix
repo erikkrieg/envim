@@ -56,6 +56,7 @@ let
     fidget-nvim
     which-key-nvim
     lualine-nvim
+    oil-nvim
 
     # Theming
     styler-nvim
