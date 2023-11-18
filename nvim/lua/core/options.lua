@@ -41,7 +41,10 @@ vim.g.markdown_recommended_style = 0
 -- cursorhold events. The resource usage will be increased, tho.
 v.updatetime = 300
 v.clipboard = "unnamedplus"
-v.spell = true
-v.spelllang = "en_us"
 g.mapleader = " " -- Set before lazy so mappings are correct
 g.maplocalleader = g.mapleader
+
+-- Spell check
+v.spell = true
+v.spelllang = "en_us"
+v.spellsuggest = "best,9"

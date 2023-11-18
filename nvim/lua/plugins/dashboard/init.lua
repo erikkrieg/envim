@@ -32,7 +32,6 @@ local config = function()
     dash.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
     dash.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
     dash.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
-    dash.button("p", "鈴" .. " Lazy", ":Lazy<CR>"),
   }
   for _, button in ipairs(dash.section.buttons.val) do
     button.opts.hl = "AlphaButtons"
@@ -42,46 +41,11 @@ local config = function()
   dash.section.header.opts.hl = "AlphaHeader"
   dash.section.buttons.opts.hl = "AlphaButtons"
   dash.opts.layout[1].val = 0
-
-  if vim.o.filetype == "lazy" then
-    -- close and re-open Lazy after showing alpha
-    vim.notify(
-      "Missing plugins installed!",
-      vim.log.levels.INFO,
-      { title = "lazy.nvim" }
-    )
-    vim.cmd.close()
-    require("alpha").setup(dash.opts)
-    require("lazy").show()
-  else
-    require("alpha").setup(dash.opts)
-  end
-
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "LazyVimStarted",
-    callback = function()
-      local stats = require("lazy").stats()
-      local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-      local version = "   v"
-        .. vim.version().major
-        .. "."
-        .. vim.version().minor
-        .. "."
-        .. vim.version().patch
-      local plugins = "⚡Neovim loaded "
-        .. stats.count
-        .. " plugins in "
-        .. ms
-        .. "ms"
-      local footer = "\t" .. version .. "\t" .. plugins .. "\n"
-      dash.section.footer.val = footer
-      pcall(vim.cmd.AlphaRedraw)
-    end,
-  })
+  require("alpha").setup(dash.opts)
 end
 
 return {
-  "goolord/alpha-nvim",
+  name = "goolord/alpha-nvim",
   lazy = false,
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = config,

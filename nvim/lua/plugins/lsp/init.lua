@@ -25,6 +25,8 @@ return {
       { "smjonas/inc-rename.nvim", config = true },
     },
     config = function()
+      require("neoconf").setup({})
+      require("fidget").setup({})
       require("plugins.lsp.servers").setup()
     end,
   },

@@ -13,6 +13,7 @@ return {
       { "windwp/nvim-autopairs", opts = {} },
     },
     config = function()
+      require("nvim-autopairs").setup({})
       local cmp = require("cmp")
       local lspkind = require("lspkind")
       local luasnip = require("luasnip")
@@ -119,9 +120,14 @@ return {
         require("luasnip.loaders.from_vscode").lazy_load()
       end,
     },
-    config = {
-      history = true,
-      delete_check_events = "TextChanged",
-    },
+    config = function()
+      require("luasnip.loaders.from_vscode").load()
+      require("luasnip").setup({
+        keep_roots = true,
+        link_roots = true,
+        link_children = true,
+        delete_check_events = "TextChanged",
+      })
+    end,
   },
 }
