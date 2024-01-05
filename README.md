@@ -19,3 +19,11 @@ While in the root of the envim directory [run in a new shell containing the buil
 ```sh
 nix develop
 ```
+
+### Grammar support with LSP
+
+The [`ltex` LSP server](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ltex) supports language models that can be used to suggest fixes for more nuanced grammar issues. These models are rather large, so I opted to exclude packaging it directly. While the model is missing, the ltex lsp server still works, but to get more capabilities you can download [ngrams](https://dev.languagetool.org/finding-errors-using-n-gram-data.html) and unzip the model at `~/models/ngrams`.
+
+> Unzip it and put it in its own directory named en, de, fr, or es, depending on the language. The path you need to set in the next step is the directory that the en etc. directory is in, not that directory itself.
+
+So, in my case I have `~/models/ngrams/en`.
