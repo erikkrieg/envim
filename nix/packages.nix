@@ -35,6 +35,7 @@
     tree-sitter
     shfmt
     helm-ls # Helm LSP
+    ltex-ls # Grammar and spelling in markup files
 
     # Terraform LSP packages
     terraform-ls

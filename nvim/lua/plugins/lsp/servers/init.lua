@@ -96,6 +96,19 @@ M.setup = function()
 
   -- Markdown
   require("lspconfig").marksman.setup(config({}))
+
+  -- Grammar and spelling markup languages (includes markdown)
+  require("lspconfig").ltex.setup(config({
+    settings = {
+      ltex = {
+        language = "en",
+        flags = { debounce_text_changes = 300 },
+        additionalRules = {
+          languageModel = "~/models/ngrams/",
+        },
+      },
+    },
+  }))
 end
 
 return M
