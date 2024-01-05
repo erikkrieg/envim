@@ -102,6 +102,7 @@ M.setup = function()
     settings = {
       ltex = {
         language = "en",
+        flags = { debounce_text_changes = 300 },
         -- additionalRules = {
         --   languageModel = "~/ngrams/",
         -- },
