@@ -99,10 +99,10 @@ M.setup = function()
 
   -- Grammar and spelling markup languages (includes markdown)
   require("lspconfig").ltex.setup(config({
+    flags = { debounce_text_changes = 300 },
     settings = {
       ltex = {
         language = "en",
-        flags = { debounce_text_changes = 300 },
         additionalRules = {
           languageModel = "~/models/ngrams/",
         },
