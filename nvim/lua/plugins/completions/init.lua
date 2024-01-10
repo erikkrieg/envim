@@ -26,6 +26,7 @@ return {
         cmp_tabnine = "[TN]",
         cmdline = "[Cmd]",
         path = "[Path]",
+        copilot = "[Copilot]",
       }
 
       local function formatTabnine(entry, vim_item)
@@ -37,6 +38,9 @@ return {
             menu = data.detail .. " " .. menu
           end
           vim_item.kind = ""
+        end
+        if entry.source.name == "copilot" then
+          vim_item.kind = ""
         end
         vim_item.menu = menu
         return vim_item
@@ -72,13 +76,14 @@ return {
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "cmp_tabnine" },
+          { name = "copilot", group_index = 2 },
         }, {
           { name = "buffer" },
         }),
         formatting = {
           format = lspkind.cmp_format({
             mode = "symbol_text",
-            maxwidth = 200,
+            max_width = 200,
             before = formatTabnine,
           }),
         },
