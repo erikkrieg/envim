@@ -80,10 +80,11 @@ let
     cmp_luasnip
     cmp-cmdline
     lspkind-nvim
-    cmp-tabnine
     nvim-autopairs
     luasnip
     friendly-snippets
+    cmp-tabnine
+    copilot-lua # Also copilot-vim from GH available
 
     # Specific language support
     vim-just
