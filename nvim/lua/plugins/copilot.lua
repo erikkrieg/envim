@@ -8,7 +8,7 @@ local function config()
         jump_next = "]]",
         accept = "<CR>",
         refresh = "gr",
-        open = "<M-CR>",
+        open = "<M-p>",
       },
       layout = {
         position = "bottom", -- | top | left | right
@@ -20,7 +20,7 @@ local function config()
       auto_trigger = false,
       debounce = 75,
       keymap = {
-        accept = "<M-l>",
+        accept = "<M-CR>",
         accept_word = false,
         accept_line = false,
         next = "<M-]>",
