@@ -1,8 +1,11 @@
+-- If true, use completions instead of suggestions and the panel.
+local use_cmp = false
+
 local function config()
   require("copilot").setup({
     panel = {
-      enabled = true,
-      auto_refresh = false,
+      enabled = not use_cmp,
+      auto_refresh = true,
       keymap = {
         jump_prev = "[[",
         jump_next = "]]",
@@ -16,10 +19,12 @@ local function config()
       },
     },
     suggestion = {
-      enabled = true,
-      auto_trigger = false,
+      enabled = not use_cmp,
+      auto_trigger = true,
       debounce = 75,
       keymap = {
+        -- I've seen accept integrated with nvim-cmp key mapping so that tab
+        -- could be used. Something to consider for at a future point.
         accept = "<M-CR>",
         accept_word = false,
         accept_line = false,
@@ -45,6 +50,16 @@ local function config()
 end
 
 return {
-  name = "zbirenbaum/copilot.lua",
-  config = config,
+  {
+    name = "zbirenbaum/copilot.lua",
+    config = config,
+  },
+  {
+    name = "zbirenbaum/copilot-cmp",
+    config = function()
+      if use_cmp then
+        require("copilot_cmp").setup()
+      end
+    end,
+  },
 }
