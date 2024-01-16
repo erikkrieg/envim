@@ -51,12 +51,13 @@ let
     nvim-web-devicons
 
     # UI
+    actions-preview-nvim
     alpha-nvim
-    telescope-nvim
     fidget-nvim
-    which-key-nvim
     lualine-nvim
     oil-nvim
+    telescope-nvim
+    which-key-nvim
 
     # Theming
     styler-nvim
