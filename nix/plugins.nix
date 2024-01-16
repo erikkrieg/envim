@@ -42,6 +42,7 @@ let
   };
 
   unstablePlugins = with unpkgs.vimPlugins; [
+    actions-preview-nvim
     indent-blankline-nvim
   ];
 
@@ -51,7 +52,6 @@ let
     nvim-web-devicons
 
     # UI
-    actions-preview-nvim
     alpha-nvim
     fidget-nvim
     lualine-nvim
