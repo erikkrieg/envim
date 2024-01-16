@@ -1,5 +1,7 @@
 local function config()
-  require("actions-preview").setup()
+  local ap = require("actions-preview")
+  ap.setup()
+  vim.keymap.set({ "v", "n" }, "<leader>fa", ap.code_actions)
 end
 
 return {
