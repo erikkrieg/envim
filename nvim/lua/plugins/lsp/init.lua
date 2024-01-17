@@ -9,8 +9,6 @@ return {
       {
         "j-hui/fidget.nvim",
         config = true,
-        -- Pin to legacy to avoid breaking changes
-        commit = "0ba1e16d07627532b6cae915cc992ecac249fb97",
       },
 
       -- Provides LSP capabilities
@@ -26,7 +24,12 @@ return {
     },
     config = function()
       require("neoconf").setup({})
-      require("fidget").setup({})
+      require("fidget").setup({
+        progress = {
+          suppress_on_insert = true,
+          ignore = { "ltex" },
+        },
+      })
       require("plugins.lsp.servers").setup()
     end,
   },
