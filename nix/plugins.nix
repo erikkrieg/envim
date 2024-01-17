@@ -44,6 +44,7 @@ let
   unstablePlugins = with unpkgs.vimPlugins; [
     actions-preview-nvim
     indent-blankline-nvim
+    fidget-nvim
   ];
 
   plugins = with pkgs.vimPlugins; [
@@ -53,7 +54,6 @@ let
 
     # UI
     alpha-nvim
-    fidget-nvim
     lualine-nvim
     oil-nvim
     telescope-nvim
