@@ -12,6 +12,9 @@ M.setup = function()
     server = config({
       settings = {
         ["rust-analyzer"] = {
+          files = {
+            excludeDirs = { ".direnv" },
+          },
           checkOnSave = {
             command = "clippy",
           },
