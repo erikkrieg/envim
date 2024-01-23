@@ -13,7 +13,7 @@ M.setup = function()
       settings = {
         ["rust-analyzer"] = {
           cargo = {
-            features = { "all" },
+            allFeatures = true,
           },
           files = {
             excludeDirs = {
