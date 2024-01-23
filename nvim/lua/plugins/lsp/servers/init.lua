@@ -13,7 +13,7 @@ M.setup = function()
       settings = {
         ["rust-analyzer"] = {
           cargo = {
-            allFeatures = true,
+            features = "all",
           },
           files = {
             excludeDirs = {
@@ -26,7 +26,14 @@ M.setup = function()
           },
           checkOnSave = {
             command = "clippy",
-            allFeatures = true,
+            features = "all",
+          },
+          check = {
+            command = "clippy",
+            features = "all",
+          },
+          procMacro = {
+            enable = true,
           },
         },
       },
