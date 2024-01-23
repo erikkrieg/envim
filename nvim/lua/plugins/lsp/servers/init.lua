@@ -12,6 +12,9 @@ M.setup = function()
     server = config({
       settings = {
         ["rust-analyzer"] = {
+          cargo = {
+            features = { "all" },
+          },
           files = {
             excludeDirs = { ".direnv" },
           },
