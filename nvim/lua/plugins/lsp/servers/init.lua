@@ -26,6 +26,7 @@ M.setup = function()
           },
           checkOnSave = {
             command = "clippy",
+            allFeatures = true,
           },
         },
       },
