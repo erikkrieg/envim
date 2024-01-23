@@ -16,7 +16,13 @@ M.setup = function()
             features = { "all" },
           },
           files = {
-            excludeDirs = { ".direnv" },
+            excludeDirs = {
+              ".cargo",
+              ".direnv",
+              ".git",
+              "node_modules",
+              "target",
+            },
           },
           checkOnSave = {
             command = "clippy",
