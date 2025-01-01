@@ -69,6 +69,9 @@ M.setup = function()
   -- Nix
   require("lspconfig").nil_ls.setup(config({}))
 
+  -- JSON
+  require("lspconfig").jsonls.setup(config({}))
+
   -- Haskell
   -- Going to try haskell tools for now since syntax highlighting was not great
   -- require("lspconfig").hls.setup(config({}))
