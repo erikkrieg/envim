@@ -2,7 +2,7 @@
   description = "Erik's Neovim configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
     unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
@@ -38,7 +38,7 @@
             withNodeJs = false;
             withPython3 = false;
             withRuby = false;
-            packpathDirs.myNeovimPackages.start = plugins;
+            plugins = plugins;
             wrapperArgs = pkgs.lib.escapeShellArgs [ "--suffix" "PATH" ":" "${packagesPath}" ];
           };
         in
