@@ -85,14 +85,15 @@ return {
       wk.setup({
         show_help = false,
         plugins = { spelling = true },
-        key_labels = { ["<leader>"] = "SPC" },
-        triggers = "auto",
+        replace = {
+          key = {
+            { "<leader>", "SPC" },
+          },
+        },
       })
       wk.register({
-        f = {
-          name = "+Telescope",
-        },
-      }, { prefix = "<leader>" })
+        { "<leader>f", group = "Telescope" },
+      })
     end,
   },
   {
