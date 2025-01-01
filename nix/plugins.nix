@@ -1,15 +1,5 @@
 { pkgs, unpkgs, ... }: with pkgs;
 let
-  vim-helm = vimUtils.buildVimPlugin {
-    name = "vim-helm";
-    pname = "vim-helm";
-    src = fetchFromGitHub {
-      owner = "towolf";
-      repo = "vim-helm";
-      rev = "c2e7b85711d410e1d73e64eb5df7b70b1c4c10eb";
-      sha256 = "sha256-NQXmIcDnUqbeiNX0QqvQbLGmONuC8HGFlfsBHBXWEc4=";
-    };
-  };
   vim-kdl = vimUtils.buildVimPlugin {
     name = "kdl";
     pname = "kdl";
