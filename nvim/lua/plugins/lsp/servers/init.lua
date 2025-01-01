@@ -64,7 +64,7 @@ M.setup = function()
   require("lspconfig").pyright.setup(config({}))
 
   -- TS/JS
-  require("lspconfig").tsserver.setup(config({}))
+  require("lspconfig").ts_ls.setup(config({}))
 
   -- Nix
   require("lspconfig").nil_ls.setup(config({}))
