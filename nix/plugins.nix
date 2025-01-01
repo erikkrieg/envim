@@ -1,15 +1,5 @@
 { pkgs, unpkgs, ... }: with pkgs;
 let
-  styler-nvim = vimUtils.buildVimPlugin {
-    name = "styler.nvim";
-    pname = "styler.nvim";
-    src = fetchFromGitHub {
-      owner = "folke";
-      repo = "styler.nvim";
-      rev = "d5b7e43af4fdaa06e4175c84f4f57b633ae7e6ff";
-      sha256 = "sha256-BlePqxukucbrUPqk4NzqXsw+3RC/jU9WOpy40D0NbwQ=";
-    };
-  };
   vim-just = vimUtils.buildVimPlugin {
     name = "vim-just";
     pname = "vim-just";
