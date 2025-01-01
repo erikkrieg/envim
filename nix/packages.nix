@@ -44,6 +44,7 @@
     # Lua
     lua-language-server
     stylua
+    luajitPackages.jsregexp # used by luasnip
   ] ++ goPackages;
   packagesPath = lib.makeBinPath packages;
 }
