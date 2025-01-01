@@ -1,15 +1,17 @@
 { pkgs, unpkgs, ... }: with pkgs;
 let
-  vim-kdl = vimUtils.buildVimPlugin {
-    name = "kdl";
-    pname = "kdl";
-    src = fetchFromGitHub {
-      owner = "imsnif";
-      repo = "kdl.vim";
-      rev = "b84d7d3a15d8d30da016cf9e98e2cfbe35cddee5";
-      sha256 = "sha256-IajKK1EjrKs6b2rotOj+RlBBge9Ii2m/iuIuefnjAE4=";
+  /* Example of fetching a plugin from GitHub 
+    vim-kdl = vimUtils.buildVimPlugin {
+      name = "kdl";
+      pname = "kdl";
+      src = fetchFromGitHub {
+        owner = "imsnif";
+        repo = "kdl.vim";
+        rev = "b84d7d3a15d8d30da016cf9e98e2cfbe35cddee5";
+        sha256 = "sha256-IajKK1EjrKs6b2rotOj+RlBBge9Ii2m/iuIuefnjAE4=";
+      };
     };
-  };
+  */
 
   unstablePlugins = with unpkgs.vimPlugins; [
     actions-preview-nvim
@@ -61,7 +63,7 @@ let
     # Specific language support
     vim-just
     vim-helm
-    vim-kdl
+    kdl-vim
     vim-go
     vim-terraform
     haskell-tools-nvim
