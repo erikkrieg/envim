@@ -91,7 +91,7 @@ return {
           },
         },
       })
-      wk.register({
+      wk.add({
         { "<leader>f", group = "Telescope" },
       })
     end,
