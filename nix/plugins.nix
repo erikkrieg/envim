@@ -56,7 +56,6 @@ let
     nvim-autopairs
     luasnip
     friendly-snippets
-    cmp-tabnine
     copilot-lua # Also copilot-vim from GH available
     copilot-cmp
 

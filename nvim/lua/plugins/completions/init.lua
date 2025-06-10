@@ -9,7 +9,6 @@ return {
       { "saadparwaiz1/cmp_luasnip" },
       { "hrsh7th/cmp-cmdline" },
       { "onsails/lspkind-nvim" },
-      { "tzachar/cmp-tabnine", build = "./install.sh" },
       { "windwp/nvim-autopairs", opts = {} },
     },
     config = function()
@@ -23,22 +22,14 @@ return {
         buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
         nvim_lua = "[Lua]",
-        cmp_tabnine = "[TN]",
         cmdline = "[Cmd]",
         path = "[Path]",
         copilot = "[Copilot]",
       }
 
-      local function formatTabnine(entry, vim_item)
+      local function formatAi(entry, vim_item)
         vim_item.kind = lspkind.presets.default[vim_item.kind]
         local menu = source_mapping[entry.source.name]
-        if entry.source.name == "cmp_tabnine" then
-          local data = entry.completion_item.data
-          if data ~= nil and data.detail ~= nil then
-            menu = data.detail .. " " .. menu
-          end
-          vim_item.kind = ""
-        end
         if entry.source.name == "copilot" then
           vim_item.kind = ""
         end
@@ -75,7 +66,6 @@ return {
           { name = "nvim_lsp_signature_help" },
           { name = "nvim_lsp" },
           { name = "luasnip" },
-          { name = "cmp_tabnine" },
           { name = "copilot", group_index = 2 },
         }, {
           { name = "buffer" },
@@ -84,7 +74,7 @@ return {
           format = lspkind.cmp_format({
             mode = "symbol_text",
             max_width = 200,
-            before = formatTabnine,
+            before = formatAi,
           }),
         },
       })
@@ -103,17 +93,6 @@ return {
         }, {
           { name = "cmdline", keyword_length = 2 },
         }),
-      })
-
-      -- Tabnine AI completions
-      local tabnine = require("cmp_tabnine.config")
-      tabnine:setup({
-        max_lines = 1000,
-        max_num_results = 20,
-        sort = true,
-        run_on_every_keystroke = true,
-        show_prediction_strength = true,
-        snippet_placeholder = "",
       })
     end,
   },
