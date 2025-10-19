@@ -17,7 +17,6 @@ v.number = true
 v.scrolloff = 8
 v.showcmd = true
 v.signcolumn = "yes"
-v.lazyredraw = true -- improves macro performance
 
 -- Search
 v.incsearch = true
