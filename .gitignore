@@ -1,3 +1,6 @@
 # I'm using this with nix shell to test plugins
 *.data/
 *.dev/
+
+# Using this for temporary files
+.scratch/
