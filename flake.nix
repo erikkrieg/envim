@@ -24,8 +24,9 @@
             name = "init.lua";
             text = ''
               vim.loader.enable()
-              vim.opt.rtp:append("${./nvim}")
-              vim.g.plugin_config_dir = "${./nvim/lua/plugins}"
+              local rtp = vim.env.NVIM_RTP or "${./nvim}"
+              vim.opt.rtp:append(rtp)
+              vim.g.plugin_config_dir = vim.env.NVIM_PLUGIN_CONFIG_DIR or (rtp .. "/lua/plugins")
               require("core")
             '';
           };
@@ -45,6 +46,9 @@
         with pkgs;
         rec {
           packages.envim = wrapNeovimUnstable neovim-unwrapped neovimConfig;
+          packages.envim-dev = pkgs.writeShellScriptBin "envim" ''
+            exec ${packages.envim}/bin/nvim "$@"
+          '';
           packages.default = packages.envim;
           apps.envim = flake-utils.lib.mkApp {
             drv = packages.envim;
@@ -54,7 +58,7 @@
           apps.default = apps.envim;
           devShell = mkShell {
             buildInputs = [
-              packages.envim
+              packages.envim-dev
               just
               stylua
             ];
@@ -63,6 +67,8 @@
               export XDG_STATE_HOME="$(pwd)/.dev/state"
               export XDG_CACHE_HOME="$(pwd)/.dev/cache"
               mkdir -p $XDG_DATA_HOME $XDG_STATE_HOME $XDG_CACHE_HOME
+              export NVIM_RTP="$(pwd)/nvim"
+              export NVIM_PLUGIN_CONFIG_DIR="$(pwd)/nvim/lua/plugins"
             '';
           };
         });

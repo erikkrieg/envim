@@ -2,5 +2,7 @@
 *.data/
 *.dev/
 
+.direnv/
+
 # Using this for temporary files
 .scratch/
