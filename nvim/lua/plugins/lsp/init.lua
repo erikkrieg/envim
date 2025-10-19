@@ -16,7 +16,7 @@ return {
       "hrsh7th/cmp-nvim-lsp-signature-help",
 
       -- Plugins for specific languages
-      { "folke/neodev.nvim", config = true }, -- Neovim Lua LSP features
+      { "folke/lazydev.nvim", ft = "lua", opts = {} }, -- Neovim Lua LSP features
       "simrat39/rust-tools.nvim", -- Easier Rust LSP config
 
       -- Misc

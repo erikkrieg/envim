@@ -1,5 +1,3 @@
-require("neodev").setup({})
-
 return {
   settings = {
     Lua = {

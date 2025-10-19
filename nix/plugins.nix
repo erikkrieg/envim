@@ -67,7 +67,7 @@ let
     vim-terraform
     haskell-tools-nvim
     neoconf-nvim
-    neodev-nvim
+    lazydev-nvim
     rust-tools-nvim
   ] ++ unstablePlugins;
 in
