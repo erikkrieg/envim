@@ -29,6 +29,7 @@ let
     lualine-nvim
     oil-nvim
     telescope-nvim
+    trouble-nvim
     which-key-nvim
 
     # Theming
