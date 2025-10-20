@@ -10,13 +10,10 @@ for n = 1, 9 do
   keymap_tab_n(n)
 end
 
-wk.add({
-  { "t", group = "Tabs" },
-  { "th", "<cmd>tabfirst<cr>", desc = "First tab" },
-  { "tk", "<cmd>tabnext<cr>", desc = "Next tab" },
-  { "tj", "<cmd>tabprev<cr>", desc = "Previous tab" },
-  { "tl", "<cmd>tablast<cr>", desc = "Last tab" },
-})
+keymap("n", "th", "<cmd>tabfirst<cr>", { desc = "Tab: First" })
+keymap("n", "tk", "<cmd>tabnext<cr>", { desc = "Tab: Next" })
+keymap("n", "tj", "<cmd>tabprev<cr>", { desc = "Tab: Previous" })
+keymap("n", "tl", "<cmd>tablast<cr>", { desc = "Tab: Last" })
 
 -- More intuitive vertical navigation of word-wrapping lines
 keymap(
