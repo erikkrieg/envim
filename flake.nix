@@ -61,6 +61,7 @@
               packages.envim-dev
               just
               stylua
+              nixpkgs-fmt
             ];
             shellHook = ''
               export XDG_DATA_HOME="$(pwd)/.dev/data"
