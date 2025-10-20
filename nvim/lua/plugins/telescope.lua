@@ -15,7 +15,7 @@ return {
   config = function()
     require("telescope").setup()
     for _, k in ipairs(keys) do
-      vim.keymap.set("n", k[1], k[2], {})
+      vim.keymap.set("n", k[1], k[2], { desc = k.desc })
     end
   end,
 
