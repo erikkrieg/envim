@@ -2,6 +2,12 @@ local M = {}
 
 M.on_attach = function(client, bufnr)
   vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+  -- Enable inlay hints if supported (off by default, toggle with <leader>ch)
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
+  end
+
   local wk = require("which-key")
   wk.add({
     buffer = bufnr,
@@ -27,6 +33,9 @@ M.on_attach = function(client, bufnr)
     },
     { "<leader>c", group = "Code" },
     { "<leader>ca", vim.lsp.buf.code_action, desc = "Actions" },
+    { "<leader>ch", function()
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
+    end, desc = "Toggle inlay hints" },
     { "<leader>D", vim.lsp.buf.type_definition, desc = "Type definition" },
     { "<leader>rn", ":IncRename ", desc = "Rename symbol" },
     { "<leader>F", vim.lsp.buf.format, desc = "Format buffer" },
