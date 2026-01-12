@@ -36,6 +36,7 @@
     shfmt
     helm-ls # Helm LSP
     ltex-ls # Grammar and spelling in markup files
+    vscode-langservers-extracted # Includes html, css, json LSPs
 
     # Terraform LSP packages
     terraform-ls
