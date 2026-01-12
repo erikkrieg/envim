@@ -47,6 +47,14 @@ local function config()
     copilot_node_command = "node", -- Node.js version must be > 18.x
     server_opts_overrides = {},
   })
+
+  -- Check authentication status and disable if not authenticated
+  vim.defer_fn(function()
+    local status_output = vim.fn.execute("Copilot status")
+    if status_output:match("Not authenticated") then
+      vim.cmd("Copilot disable")
+    end
+  end, 1000)
 end
 
 return {
