@@ -17,7 +17,7 @@ return {
 
       -- Plugins for specific languages
       { "folke/lazydev.nvim", ft = "lua", opts = {} }, -- Neovim Lua LSP features
-      "simrat39/rust-tools.nvim", -- Easier Rust LSP config
+      "mrcjkb/rustaceanvim", -- Rust LSP config
 
       -- Misc
       { "smjonas/inc-rename.nvim", config = true },

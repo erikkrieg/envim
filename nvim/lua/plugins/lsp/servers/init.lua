@@ -7,10 +7,11 @@ M.setup = function()
   -- Lua
   lsp.lua_ls.setup(config(require("plugins.lsp.servers.lua")))
 
-  -- Rust
-  require("rust-tools").setup({
+  -- Rust: rustaceanvim starts rust-analyzer itself when a Rust buffer opens,
+  -- so it must not also be set up through lspconfig.
+  vim.g.rustaceanvim = {
     server = config({
-      settings = {
+      default_settings = {
         ["rust-analyzer"] = {
           cargo = {
             features = "all",
@@ -38,7 +39,7 @@ M.setup = function()
         },
       },
     }),
-  })
+  }
 
   -- Go
   require("lspconfig").gopls.setup(config({

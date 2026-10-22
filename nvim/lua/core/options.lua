@@ -29,7 +29,8 @@ v.pumheight = 20
 -- Theme
 v.termguicolors = true
 v.background = "dark"
-vim.cmd("syntax on")
+-- No `syntax on`: Neovim enables it after init, and running it here starts
+-- filetype plugins (like rustaceanvim) before their config is set.
 
 -- ftplugins
 -- Default markdown ftplugin changes my settings

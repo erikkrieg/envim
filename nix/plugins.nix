@@ -69,7 +69,7 @@ let
     haskell-tools-nvim
     neoconf-nvim
     lazydev-nvim
-    rust-tools-nvim
+    rustaceanvim
   ] ++ unstablePlugins;
 in
 {
