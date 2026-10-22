@@ -25,10 +25,6 @@ M.setup = function()
               "target",
             },
           },
-          checkOnSave = {
-            command = "clippy",
-            features = "all",
-          },
           check = {
             command = "clippy",
             features = "all",
