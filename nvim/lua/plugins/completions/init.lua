@@ -24,15 +24,11 @@ return {
         nvim_lua = "[Lua]",
         cmdline = "[Cmd]",
         path = "[Path]",
-        copilot = "[Copilot]",
       }
 
       local function formatAi(entry, vim_item)
         vim_item.kind = lspkind.presets.default[vim_item.kind]
         local menu = source_mapping[entry.source.name]
-        if entry.source.name == "copilot" then
-          vim_item.kind = ""
-        end
         vim_item.menu = menu
         return vim_item
       end
@@ -66,7 +62,6 @@ return {
           { name = "nvim_lsp_signature_help" },
           { name = "nvim_lsp" },
           { name = "luasnip" },
-          { name = "copilot", group_index = 2 },
         }, {
           { name = "buffer" },
         }),

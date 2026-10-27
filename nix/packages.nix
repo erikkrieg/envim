@@ -26,7 +26,7 @@
     nil
     nixpkgs-fmt
     ormolu # Haskell formatter
-    nodejs-slim_20 # Required by node packages and copilot
+    nodejs-slim_20 # Runs project-local node tools, like prettier via neoformat
     nodePackages.bash-language-server
     nodePackages.prettier # Used to format several languages
     nodePackages.typescript-language-server

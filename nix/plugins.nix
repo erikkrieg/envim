@@ -57,8 +57,6 @@ let
     nvim-autopairs
     luasnip
     friendly-snippets
-    copilot-lua # Also copilot-vim from GH available
-    copilot-cmp
 
     # Specific language support
     vim-just
