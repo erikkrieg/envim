@@ -52,11 +52,4 @@ end
 M.capabilities = require("cmp_nvim_lsp").default_capabilities()
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-M.config = function(c)
-  local cfg = c or {}
-  cfg.on_attach = M.on_attach
-  cfg.capabilities = M.capabilities
-  return cfg
-end
-
 return M

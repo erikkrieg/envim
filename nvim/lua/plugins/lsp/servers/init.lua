@@ -1,16 +1,54 @@
 local M = {}
 
+-- neoconf only hooks the legacy require("lspconfig") setup, so merge its
+-- settings (.neoconf.json, .vscode/settings.json) into each new client here.
+local function apply_neoconf(client)
+  local config = client.config
+  local before = vim.deepcopy(client.settings)
+  config.settings = config.settings or {}
+  require("neoconf.plugins.lspconfig").on_new_config(config, client.root_dir, config)
+  if not vim.deep_equal(before, config.settings) then
+    client.settings = config.settings
+    client:notify("workspace/didChangeConfiguration", { settings = client.settings })
+  end
+end
+
 M.setup = function()
-  local lsp = require("lspconfig")
-  local config = require("plugins.lsp.servers.config").config
+  local shared = require("plugins.lsp.servers.config")
+
+  -- LspAttach rather than on_attach in each config: it also covers
+  -- rust-analyzer from rustaceanvim and keeps the on_attach that some
+  -- lspconfig server configs define.
+  vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("LspSharedAttach", { clear = true }),
+    callback = function(args)
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      if client then
+        shared.on_attach(client, args.buf)
+      end
+    end,
+  })
+  local neoconf_applied = {}
+  vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("LspNeoconf", { clear = true }),
+    callback = function(args)
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      if client and not neoconf_applied[client.id] then
+        neoconf_applied[client.id] = true
+        apply_neoconf(client)
+      end
+    end,
+  })
+  vim.lsp.config("*", { capabilities = shared.capabilities })
 
   -- Lua
-  lsp.lua_ls.setup(config(require("plugins.lsp.servers.lua")))
+  vim.lsp.config("lua_ls", require("plugins.lsp.servers.lua"))
+  vim.lsp.enable("lua_ls")
 
   -- Rust: rustaceanvim starts rust-analyzer itself when a Rust buffer opens,
-  -- so it must not also be set up through lspconfig.
+  -- so it must not also be enabled with vim.lsp.enable.
   vim.g.rustaceanvim = {
-    server = config({
+    server = {
       default_settings = {
         ["rust-analyzer"] = {
           cargo = {
@@ -34,11 +72,11 @@ M.setup = function()
           },
         },
       },
-    }),
+    },
   }
 
   -- Go
-  require("lspconfig").gopls.setup(config({
+  vim.lsp.config("gopls", {
     cmd = { "gopls", "serve" },
     settings = {
       gopls = {
@@ -48,49 +86,43 @@ M.setup = function()
         staticcheck = true,
       },
     },
-  }))
+  })
+  vim.lsp.enable("gopls")
 
   -- Bash
-  require("lspconfig").bashls.setup(config({}))
+  vim.lsp.enable("bashls")
 
   -- Terraform
-  require("lspconfig").terraformls.setup(config({}))
-  require("lspconfig").tflint.setup(config({}))
+  vim.lsp.enable({ "terraformls", "tflint" })
 
   -- Python
-  require("lspconfig").pyright.setup(config({}))
+  vim.lsp.enable("pyright")
 
   -- TS/JS
-  require("lspconfig").ts_ls.setup(config({}))
+  vim.lsp.enable("ts_ls")
 
   -- Nix
-  require("lspconfig").nil_ls.setup(config({}))
+  vim.lsp.enable("nil_ls")
 
   -- JSON
-  require("lspconfig").jsonls.setup(config({}))
+  vim.lsp.enable("jsonls")
 
   -- Haskell
   -- Going to try haskell tools for now since syntax highlighting was not great
-  -- require("lspconfig").hls.setup(config({}))
+  -- vim.lsp.enable("hls")
 
   -- Helm
-  local configs = require("lspconfig.configs")
-  local util = require("lspconfig.util")
-  if not configs.helm_ls then
-    configs.helm_ls = {
-      default_config = {
-        cmd = { "helm_ls", "serve" },
-        filetypes = { "helm" },
-        root_dir = function(fname)
-          return util.root_pattern("Chart.yaml")(fname)
-        end,
-      },
-    }
-  end
-  lsp.helm_ls.setup(config({}))
+  vim.lsp.enable("helm_ls")
 
   -- Yaml
-  local yamlconfig = config({
+  vim.lsp.config("yamlls", {
+    on_attach = function(client, bufnr)
+      -- yamlls does not play nice with helm files
+      -- https://github.com/redhat-developer/yaml-language-server/issues/220
+      if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+        client:stop()
+      end
+    end,
     settings = {
       yaml = {
         keyOrdering = false,
@@ -102,23 +134,13 @@ M.setup = function()
       },
     },
   })
-  local yaml_attach = yamlconfig.on_attach
-  yamlconfig.on_attach = function(client, bufnr)
-    -- yamlls does not play nice with helm files
-    -- https://github.com/redhat-developer/yaml-language-server/issues/220
-    if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
-      vim.lsp.stop_client(client.id)
-    else
-      yaml_attach(client, bufnr)
-    end
-  end
-  require("lspconfig").yamlls.setup(yamlconfig)
+  vim.lsp.enable("yamlls")
 
   -- Markdown
-  require("lspconfig").marksman.setup(config({}))
+  vim.lsp.enable("marksman")
 
   -- Grammar and spelling markup languages (includes markdown)
-  require("lspconfig").ltex.setup(config({
+  vim.lsp.config("ltex", {
     flags = { debounce_text_changes = 300 },
     settings = {
       ltex = {
@@ -128,7 +150,8 @@ M.setup = function()
         },
       },
     },
-  }))
+  })
+  vim.lsp.enable("ltex")
 end
 
 return M

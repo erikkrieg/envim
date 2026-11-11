@@ -13,21 +13,21 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
     build = ":TSUpdate",
     config = function()
-      local configs = require("nvim-treesitter.configs")
-      configs.setup({
-        sync_install = false,
-        ignore_install = { "" }, -- List of parsers to ignore installing
-        highlight = {
-          enable = true,
-          disable = { "" },
-          additional_vim_regex_highlighting = true,
-        },
-        indent = { enable = true, disable = { "yaml" } },
-        rainbow = {
-          enable = true,
-          extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-          max_file_lines = nil, -- Do not enable for files with more than n lines, int
-        },
+      -- Parsers and queries come from Nix; enable highlighting and indent for
+      -- every filetype that has a parser.
+      vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("TreesitterFeatures", { clear = true }),
+        callback = function(args)
+          local lang = vim.treesitter.language.get_lang(args.match)
+          if not lang or not pcall(vim.treesitter.start, args.buf, lang) then
+            return
+          end
+          vim.bo[args.buf].syntax = "ON" -- Keep regex highlighting as well
+          local has_indents = #vim.treesitter.query.get_files(lang, "indents") > 0
+          if lang ~= "yaml" and has_indents then
+            vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end,
       })
     end,
   },

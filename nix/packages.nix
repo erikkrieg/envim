@@ -26,11 +26,11 @@
     nil
     nixpkgs-fmt
     ormolu # Haskell formatter
-    nodejs-slim_20 # Runs project-local node tools, like prettier via neoformat
-    nodePackages.bash-language-server
-    nodePackages.prettier # Used to format several languages
-    nodePackages.typescript-language-server
-    nodePackages.yaml-language-server
+    nodejs-slim # Runs project-local node tools, like prettier via neoformat
+    bash-language-server
+    prettier # Used to format several languages
+    typescript-language-server
+    yaml-language-server
     marksman # Markdown LSP
     tree-sitter
     shfmt
