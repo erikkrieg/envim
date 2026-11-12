@@ -148,7 +148,11 @@ M.setup = function()
 
   -- Grammar and spelling. lspconfig's default filetypes include many
   -- programming languages, so limit harper to prose.
-  vim.lsp.config("harper_ls", { filetypes = { "markdown", "gitcommit" } })
+  vim.lsp.config("harper_ls", {
+    filetypes = { "markdown", "gitcommit" },
+    -- harper-ls logs "Settings must be an object" when it is given none.
+    settings = { ["harper-ls"] = { dialect = "American" } },
+  })
   vim.lsp.enable("harper_ls")
 end
 
