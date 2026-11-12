@@ -30,10 +30,8 @@
               require("core")
             '';
           };
-          neovimConfig = pkgs.neovimUtils.makeNeovimConfig
-            {
-              customRC = "luafile ${initFile}";
-            } // {
+          neovimConfig = {
+            neovimRcContent = "luafile ${initFile}";
             viAlias = true;
             vimAlias = true;
             withNodeJs = false;
