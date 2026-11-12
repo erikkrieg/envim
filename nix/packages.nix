@@ -31,11 +31,11 @@
     prettier # Used to format several languages
     typescript-language-server
     yaml-language-server
-    marksman # Markdown LSP
+    rumdl # Markdown LSP and linter
     tree-sitter
     shfmt
     helm-ls # Helm LSP
-    ltex-ls # Grammar and spelling in markup files
+    harper # Grammar and spelling LSP (harper-ls)
     vscode-langservers-extracted # Includes html, css, json LSPs
 
     # Terraform LSP packages

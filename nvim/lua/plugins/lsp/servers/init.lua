@@ -137,21 +137,12 @@ M.setup = function()
   vim.lsp.enable("yamlls")
 
   -- Markdown
-  vim.lsp.enable("marksman")
+  vim.lsp.enable("rumdl")
 
-  -- Grammar and spelling markup languages (includes markdown)
-  vim.lsp.config("ltex", {
-    flags = { debounce_text_changes = 300 },
-    settings = {
-      ltex = {
-        language = "en",
-        additionalRules = {
-          languageModel = "~/models/ngrams/",
-        },
-      },
-    },
-  })
-  vim.lsp.enable("ltex")
+  -- Grammar and spelling. lspconfig's default filetypes include many
+  -- programming languages, so limit harper to prose.
+  vim.lsp.config("harper_ls", { filetypes = { "markdown", "gitcommit" } })
+  vim.lsp.enable("harper_ls")
 end
 
 return M

@@ -27,7 +27,6 @@ return {
       require("fidget").setup({
         progress = {
           suppress_on_insert = true,
-          ignore = { "ltex" },
         },
       })
       require("plugins.lsp.servers").setup()
