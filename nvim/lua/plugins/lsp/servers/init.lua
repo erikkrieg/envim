@@ -143,7 +143,8 @@ M.setup = function()
   })
   vim.lsp.enable("yamlls")
 
-  -- Markdown
+  -- Markdown. enableAutoFix applies rumdl's fixes when a buffer is saved.
+  vim.lsp.config("rumdl", { init_options = { enableAutoFix = true } })
   vim.lsp.enable("rumdl")
 
   -- Grammar and spelling. lspconfig's default filetypes include many
