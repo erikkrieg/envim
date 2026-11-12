@@ -16,16 +16,21 @@ return {
       -- Parsers and queries come from Nix; enable highlighting and indent for
       -- every filetype that has a parser.
       vim.api.nvim_create_autocmd("FileType", {
-        group = vim.api.nvim_create_augroup("TreesitterFeatures", { clear = true }),
+        group = vim.api.nvim_create_augroup(
+          "TreesitterFeatures",
+          { clear = true }
+        ),
         callback = function(args)
           local lang = vim.treesitter.language.get_lang(args.match)
           if not lang or not pcall(vim.treesitter.start, args.buf, lang) then
             return
           end
           vim.bo[args.buf].syntax = "ON" -- Keep regex highlighting as well
-          local has_indents = #vim.treesitter.query.get_files(lang, "indents") > 0
+          local has_indents = #vim.treesitter.query.get_files(lang, "indents")
+            > 0
           if lang ~= "yaml" and has_indents then
-            vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            vim.bo[args.buf].indentexpr =
+              "v:lua.require'nvim-treesitter'.indentexpr()"
           end
         end,
       })

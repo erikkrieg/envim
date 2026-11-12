@@ -6,10 +6,17 @@ local function apply_neoconf(client)
   local config = client.config
   local before = vim.deepcopy(client.settings)
   config.settings = config.settings or {}
-  require("neoconf.plugins.lspconfig").on_new_config(config, client.root_dir, config)
+  require("neoconf.plugins.lspconfig").on_new_config(
+    config,
+    client.root_dir,
+    config
+  )
   if not vim.deep_equal(before, config.settings) then
     client.settings = config.settings
-    client:notify("workspace/didChangeConfiguration", { settings = client.settings })
+    client:notify(
+      "workspace/didChangeConfiguration",
+      { settings = client.settings }
+    )
   end
 end
 
