@@ -59,7 +59,7 @@ M.on_attach = function(client, bufnr)
     })
     wk.add({
       buffer = bufnr,
-      { "<leader>cg", harper.review, desc = "Review grammar" },
+      { "<leader>fw", harper.review, desc = "Review writing" },
     })
   end
 end

@@ -26,7 +26,7 @@ nix develop
 
 To accept a word that Harper flags, run a code action on it (`gra`) and add it to the user, workspace, or file dictionary.
 
-To go through Harper's problems one at a time, press `<leader>cg` or run `:HarperReview`. It starts at the cursor and opens a popup under each problem with Harper's fixes and a preview of the change. Press a number to apply a fix, Enter to apply the highlighted one, `s` to skip, and `q` or Esc to stop. To review one rule only, pass its name, such as `:HarperReview SpellCheck`. Press Tab after `:HarperReview ` to list the rules in the current buffer.
+To go through Harper's problems one at a time, press `<leader>fw` or run `:HarperReview`. It starts at the cursor and opens a popup under each problem with Harper's fixes and a preview of the change. Press a number to apply a fix, Enter to apply the highlighted one, `s` to skip, and `q` or Esc to stop. To review one rule only, pass its name, such as `:HarperReview SpellCheck`. Press Tab after `:HarperReview ` to list the rules in the current buffer.
 
 ### Markdown
 
