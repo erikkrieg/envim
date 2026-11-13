@@ -47,6 +47,21 @@ M.on_attach = function(client, bufnr)
     { "<leader>rn", ":IncRename ", desc = "Rename symbol" },
     { "<leader>F", vim.lsp.buf.format, desc = "Format buffer" },
   })
+
+  if client.name == "harper_ls" then
+    local harper = require("plugins.lsp.harper_review")
+    vim.api.nvim_buf_create_user_command(bufnr, "HarperReview", function(opts)
+      harper.review(opts.args ~= "" and opts.args or nil)
+    end, {
+      nargs = "?",
+      complete = harper.rules,
+      desc = "Review Harper's problems from the cursor down",
+    })
+    wk.add({
+      buffer = bufnr,
+      { "<leader>cg", harper.review, desc = "Review grammar" },
+    })
+  end
 end
 
 M.capabilities = require("cmp_nvim_lsp").default_capabilities()
